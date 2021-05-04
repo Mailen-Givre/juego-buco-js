@@ -63,7 +63,6 @@ let errorVacio = ""
 let errorRepetido = ""
 let errorNoNumero = ""
 
-
 /* FUNCIONES */
 
 function agregarUsuario (usuarioNuevo){
@@ -76,7 +75,7 @@ function agregarUsuario (usuarioNuevo){
 /* Numero a adivinar */
 function randomNumber() { //Genera 1 numero al azar
     return Math.floor(Math.random()*10);
-  }
+}
 
 function validarPC(posicionf){ //Se fija que no se repita el numero
     if (posicionf == 0) {return true}  // Primer numero : aun no tiene para comparar con uno anterior.
@@ -105,7 +104,7 @@ function generarNumeros () { //Genera x cantidad de numeros que no se repiten en
 /* Numeros Usuario */
 function crearNumberGuess() { //Genero los inputs para que el usuario escriba su numero
     let acumulador = ``;
-    for (let i = 0; i < ARRAYNUMEROSUSUARIO.length; i++) {
+    for (let i = 0; i < cantidadNumeros; i++) {
         acumulador += `<input id=numberGuess${i} class='numberGuess' type="text" maxlength="1" name="numero"/>`; 
       }
       document.getElementById("numberGuessContainer").innerHTML = acumulador;
@@ -124,15 +123,15 @@ function crearNumberGuess() { //Genero los inputs para que el usuario escriba su
 
 function borrarErrores(){ //Borra los bordes rojos y los textos
     if (errorVacio != ""){
-        document.getElementById("numberGuessContainer").removeChild(errorVacio);
+        document.getElementById("errores").removeChild(errorVacio);
         errorVacio = ""
     }
     if (errorRepetido != ""){
-        document.getElementById("numberGuessContainer").removeChild(errorRepetido);
+        document.getElementById("errores").removeChild(errorRepetido);
         errorRepetido = ""
     }
     if (errorNoNumero != ""){
-        document.getElementById("numberGuessContainer").removeChild(errorNoNumero);
+        document.getElementById("errores").removeChild(errorNoNumero);
         errorNoNumero = ""
     }
     for (let i = 0; i < ARRAYNUMEROSUSUARIO.length; i++){
@@ -158,14 +157,14 @@ function adivinar(){ //Cuando hace click en el boton avanzar
           crearArrayNumUsuario()
           comparar()
       }
-  }
+}
 
   function crearArrayNumUsuario(){ //Array que guarda el numero dado por el usuario
       ARRAYNUMEROSUSUARIO = []
     for (let i = 0; i < cantidadNumeros; i++){
         ARRAYNUMEROSUSUARIO.push(parseInt(document.getElementById(`numberGuess${i}`).value))
     }
-  }
+}
 
   function validarNumeroUsuario(){ //Chequeo si completo correctamente los inputs
       let esValido = true
@@ -177,17 +176,19 @@ function adivinar(){ //Cuando hace click en el boton avanzar
             if (errorVacio ==""){
             errorVacio = document.createElement("p")
             errorVacio.innerText = arrayTextoErrores[0]; 
-            document.getElementById("numberGuessContainer").appendChild(errorVacio)
+            document.getElementById("errores").appendChild(errorVacio)
             /* alert ('falta llenar casilleros') */
             }
 
         } else if (isNaN (numUsuario)){ //Si alguno de los caracteres no es numerico salta error
             esValido = false
             document.getElementById(`numberGuess${i}`).style.border = "5px solid red";
+            if (errorNoNumero == ""){            
             errorNoNumero = document.createElement("p")
             errorNoNumero.innerText = arrayTextoErrores[1]; 
-            document.getElementById("numberGuessContainer").appendChild(errorNoNumero)
+            document.getElementById("errores").appendChild(errorNoNumero)
             /*   alert ('Ingresa numeros')   */  
+            }
         }
       }
       if (esValido){
@@ -197,7 +198,7 @@ function adivinar(){ //Cuando hace click en el boton avanzar
             esValido = false
             errorRepetido = document.createElement("p")
             errorRepetido.innerText = arrayTextoErrores[2];  
-            document.getElementById("numberGuessContainer").appendChild(errorRepetido)
+            document.getElementById("errores").appendChild(errorRepetido)
             /* alert('Estas repitiendo un numero'); */
         }
       }
@@ -205,7 +206,7 @@ function adivinar(){ //Cuando hace click en el boton avanzar
           return true
       } else {
           return false}
-  }
+}
 
 
   function validarSiRepetido (){ //Chequea si alguno de los numeros se repite 

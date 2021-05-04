@@ -23,13 +23,7 @@ body{
     background: rgb(255, 255, 255, 0.8); 
 }
 
-p{
-    font-family: Roboto;
-    color: red;
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 20px;
-}
+
 /* INDICE */
 .fondo{
     background-image: url(../multimedia/indice/fondoIndice.jpg);
@@ -91,7 +85,7 @@ h1{
     margin: 60px 0 20px 35vw;
 }
 .centrar{
-    margin: 5vw 15vw;
+    margin: 3vw 15vw;
     text-align: center;
 }
 .numberGuess{
@@ -217,3 +211,20 @@ button:active {
     margin: 0 15px;
 }
 
+#errores {
+    margin-top: 3px;
+    height: 35px;
+}
+#errores p{
+    font-family: Roboto;
+    color: red;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #6cc6ff;
+    padding: 2px 0;
+}
+
+#numberGuessContainer{
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+}
