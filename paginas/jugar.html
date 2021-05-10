@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <script src="../js/jquery-3.6.0.js"defer></script>
     <script src="../js/main.js"defer></script>
     <!-- <script src="../js/fecha.js"></script> -->
 </head>
@@ -19,56 +20,27 @@
         <a href="../index.html"><img src="../multimedia/isologo.png" alt="logo"></a>
         <h1>Nivel 2</h1>
     </header>
-    <div class="centrar" id="numberGuessContainer"> </div>
-    <div class="centrar" id="errores"></div>
-    <div class="centrar flex">
-        <button id="adivinar" type="button">Adivinar</button>
-        <div class="flex">  
-            <div class="toroVaca"><img src="../multimedia/jugar/toro-01.svg" alt="toro"></div>
-            <div class="toroVaca"><img src="../multimedia/jugar/vaca-01.svg" alt="vaca"></div>
-        </div>
+    <div class="flex">
+        <dv>
+            <div class="centrar" id="numberGuessContainer"> </div>
+            <div class="centrar" id="errores"></div>
+            <div class="centrar">
+                <button id="adivinar" type="button">Adivinar</button>
+            </div>
+            <div class="centrar botonesRendirseReiniciar">
+                <a href="../index.html"><button class="btn__naranja" type="button">Me rindo</button></a>
+                <button id="reiniciar" class="btn__verde" type="button">Reiniciar</button>
+            </div>
+        </dv>
+        <div>
+            <div class="flexToroVaca">  
+                <div class="toroVaca"><img src="../multimedia/jugar/toro-01.svg" alt="toro"></div>
+                <div class="toroVaca"><img src="../multimedia/jugar/vaca-01.svg" alt="vaca"></div>
+            </div>
+            <div id="respuestas"  class="respuestas scrollbar centrar">
+            </div>
+        </div>        
     </div>
-    <div class="respuestas scrollbar centrar">
-        <!-- <div class="guessLine">
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberAnswer' type="text"  name="numerorta"/>
-        </div>
-        <div class="guessLine">
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberAnswer' type="text"  name="numerorta"/>
-        </div>
-        <div class="guessLine">
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberAnswer' type="text"  name="numerorta"/>
-        </div>
-        <div class="guessLine">
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberAnswer' type="text"  name="numerorta"/>
-        </div>
-        <div class="guessLine">
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberGuessOld' type="text" maxlength="1" name="numberOld"/>
-            <input class='numberAnswer' type="text"  name="numerorta"/>
-        </div> -->
-        
-    </div>
-    <div class="centrar">
-        <a href="../index.html"><button class="btn__naranja" type="button">Me rindo</button></a>
-        <button class="btn__verde" type="button">Reiniciar</button>
-    </div>
+    
 </body>
 </html>
