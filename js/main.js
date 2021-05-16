@@ -6,8 +6,8 @@
 //TODO preguntar info del usuario
 
 
-/* Objeto Usuario */
-class USUARIO {
+/* Objeto usuario */
+class usuario {
     constructor (nombre,puntaje,fecha){
         this.nombre = nombre;
         this.puntaje = puntaje;
@@ -21,39 +21,42 @@ class USUARIO {
     }
 }
 
-// let valorUsuarioEnElStorage = localStorage.USUARIOSTOTALES //  getItem string
+// let valorUsuarioEnElStorage = localStorage.usuariosTotales //  getItem string
 let valorUsuarioEnElStorage = localStorage.getItem('usuarioTotal') //  getItem string
-let USUARIOSTOTALES = []
+let usuariosTotales = []
 if (valorUsuarioEnElStorage != null){
-    USUARIOSTOTALES= JSON.parse(valorUsuarioEnElStorage) // objeto
+    usuariosTotales= JSON.parse(valorUsuarioEnElStorage) // objeto
 } 
 
-const USUARIO1 = new USUARIO ('Nes',25, '22/04/2021');
-// USUARIO1.mostrarJugador();
+const usuario1 = new usuario ('Nes',25, '22/04/2021');
+// usuario1.mostrarJugador();
 
-agregarUsuario(USUARIO1)
+agregarUsuario(usuario1)
 
-USUARIOSTOTALES.forEach(myFunction);
+usuariosTotales.forEach(myFunction);
 function myFunction(item, index) {
-// console.log(USUARIOSTOTALES[index].nombre);
-// console.log(USUARIOSTOTALES[index].puntaje);
-// console.log(USUARIOSTOTALES[index].fecha);
-USUARIOSTOTALES[index].mostrarJugador
+// console.log(usuariosTotales[index].nombre);
+// console.log(usuariosTotales[index].puntaje);
+// console.log(usuariosTotales[index].fecha);
+usuariosTotales[index].mostrarJugador
 }
 
 /* La computadora genera un número de 4 cifras que no se repiten */
 let cantidadNumeros = 4 // Cantidad de numeros a adivinar. Puede variar.
-let ARRAYNUMEROSPC = new Array(cantidadNumeros); //Crear array del numero de la PC
+let arrayNumerosPc = new Array(cantidadNumeros); //Crear array del numero de la PC
 let numeroPC = 0
 let cantidadDeIntentos = 0
+generarNumeros()
+console.log ('Numero a adivinar' + arrayNumerosPc)
+
 
 
 /* Pedirle numeros al usuario */
-let ARRAYNUMEROSUSUARIO = new Array(cantidadNumeros); // Crear array del numero del usuario
+let arrayNumerosUsuario = new Array(cantidadNumeros); // Crear array del numero del usuario
 crearNumberGuess() //Crear inputs para que el usuario escriba sus numeros
 siguienteInput() //Pasa al siguiente input al estar lleno
-document.getElementById("adivinar").addEventListener("click",adivinar); //Cuando se hace click en el boton adivinar
-document.getElementById("reiniciar").addEventListener("click",resetear); //Se resetea al hacer click en reiniciar
+$("#adivinar").click(adivinar); //Cuando se hace click en el boton adivinar // EVENTO CON JQUERY 
+$("#reiniciar").click(resetear); //Se resetea al hacer click en reiniciar
 
 /* Errores */
 const arrayTextoErrores = ["*Falta llenar casilleros","*Ingresa numeros","*Estas repitiendo un numero"]
@@ -65,24 +68,22 @@ let errorNoNumero = ""
 let buenas
 let regulares
 
-resetear()
-
 /* FUNCIONES */
 
 function agregarUsuario (usuarioNuevo){
-    USUARIOSTOTALES.push (usuarioNuevo)
-    // localStorage.USUARIOSTOTALES = JSON.stringify(USUARIOSTOTALES) // setItem string
-    let USUARIOSSTRING = JSON.stringify(USUARIOSTOTALES)
+    usuariosTotales.push (usuarioNuevo)
+    // localStorage.usuariosTotales = JSON.stringify(usuariosTotales) // setItem string
+    let USUARIOSSTRING = JSON.stringify(usuariosTotales)
     localStorage.setItem('usuarioTotal', USUARIOSSTRING)
 }
 
 /* Numero a adivinar */
-function generarNumeros () { //Genera x cantidad de numeros que no se repiten entre si
+function generarNumeros() { //Genera x cantidad de numeros que no se repiten entre si
     numeroPC = randomNumber () //Pide por primera vez un numero random
     let posicion=0
-    while (posicion < ARRAYNUMEROSPC.length) { 
+    while (posicion < arrayNumerosPc.length) { 
         if (validarPC(posicion)) { //valida si no se repite el numero
-            ARRAYNUMEROSPC[posicion]= numeroPC //rellena el array con el numero random
+            arrayNumerosPc[posicion]= numeroPC //rellena el array con el numero random
             posicion += 1 //avanza a la siguiente posicion del array
             numeroPC=randomNumber() //propone un nuevo numero para la siguiente posicion
         }
@@ -96,7 +97,7 @@ function randomNumber() { //Genera 1 numero al azar
 function validarPC(posicionf){ //Se fija que no se repita el numero
     if (posicionf == 0) {return true}  // Primer numero : aun no tiene para comparar con uno anterior.
     for (let i = 0; i < posicionf; i++) {
-        if (ARRAYNUMEROSPC[i] == numeroPC) { //compara si el numero anterior guardado en el array es igual al nuevo numero propuesto
+        if (arrayNumerosPc[i] == numeroPC) { //compara si el numero anterior guardado en el array es igual al nuevo numero propuesto
             numeroPC=randomNumber() // si es igual propone un nuevo numero
             return false
         }
@@ -114,7 +115,7 @@ function crearNumberGuess() { //Genero los inputs para que el usuario escriba su
       $("#numberGuessContainer").html(`${acumulador}`); //Lo mismo con JQUERY
 
     // OTRA FORMA DE HACER LO MISMO (lo dejo adrede)
-    // for (let i = 0; i < ARRAYNUMEROSUSUARIO.length; i++) {
+    // for (let i = 0; i < arrayNumerosUsuario.length; i++) {
     //     let input = document.createElement("input")
     //     document.getElementById("numberGuessContainer").appendChild(input)
     //     input.setAttribute("id", `numberGuess${i}`);
@@ -137,7 +138,6 @@ function adivinar(){ //Cuando hace click en el boton adivinar
 function resetear(){ 
     borrarJuego ()
     generarNumeros()
-    console.log ('Numero a adivinar' + ARRAYNUMEROSPC)
 }
 
 function borrarErrores(){ //Borra los bordes rojos y los textos
@@ -153,14 +153,14 @@ function borrarErrores(){ //Borra los bordes rojos y los textos
         document.getElementById("errores").removeChild(errorNoNumero);
         errorNoNumero = ""
     }
-    for (let i = 0; i < ARRAYNUMEROSUSUARIO.length; i++){
+    for (let i = 0; i < arrayNumerosUsuario.length; i++){
     document.getElementById(`numberGuess${i}`).style.border = "none";
     }
 }
 
 function validarNumeroUsuario(){ //Chequeo si completo correctamente los inputs
     let esValido = true
-    for (let i = 0; i < ARRAYNUMEROSUSUARIO.length; i++){
+    for (let i = 0; i < arrayNumerosUsuario.length; i++){
       let numUsuario=document.getElementById(`numberGuess${i}`).value
       if (numUsuario == ''|| numUsuario==' '){ //Si algun casillero esta vacio
           esValido = false
@@ -200,10 +200,10 @@ function validarNumeroUsuario(){ //Chequeo si completo correctamente los inputs
 
 function validarSiRepetido (){ //Chequea si alguno de los numeros se repite 
     let noSeRepite = true
-    for (let i=0; i < ARRAYNUMEROSUSUARIO.length-1; i++){
+    for (let i=0; i < arrayNumerosUsuario.length-1; i++){
         if (noSeRepite == false){
             return false
-        } for (let j=i+1; j < ARRAYNUMEROSUSUARIO.length; j++){
+        } for (let j=i+1; j < arrayNumerosUsuario.length; j++){
             if (document.getElementById(`numberGuess${i}`).value==document.getElementById(`numberGuess${j}`).value){
             noSeRepite = false;
             document.getElementById(`numberGuess${i}`).style.border = "5px solid red";
@@ -215,9 +215,9 @@ function validarSiRepetido (){ //Chequea si alguno de los numeros se repite
 }
 
 function crearArrayNumUsuario(){ //Array que guarda el numero dado por el usuario
-    ARRAYNUMEROSUSUARIO = []
+    arrayNumerosUsuario = []
   for (let i = 0; i < cantidadNumeros; i++){
-      ARRAYNUMEROSUSUARIO.push(parseInt(document.getElementById(`numberGuess${i}`).value))
+      arrayNumerosUsuario.push(parseInt(document.getElementById(`numberGuess${i}`).value))
   }
 }
 
@@ -226,7 +226,7 @@ function comparar(){ //Compara el numero del usuario con el de la PC
     regulares = 0
     for (let i=0; i < cantidadNumeros; i++){
         for (let j=0; j < cantidadNumeros; j++){
-            if (ARRAYNUMEROSUSUARIO[i]==ARRAYNUMEROSPC[j]){
+            if (arrayNumerosUsuario[i]==arrayNumerosPc[j]){
                 if(i==j){
                     buenas += 1
                 } else {
@@ -268,7 +268,7 @@ function borrarInput(){ //Borra el valor de los inputs
 
 function borrarJuego(){ //Borrar datos de pantalla y variables
     cantidadDeIntentos = 0
-    ARRAYNUMEROSPC = []
+    arrayNumerosPc = []
     $("#respuestas").html('')
     borrarErrores()
     for (let i = 0; i < cantidadNumeros; i++){ //borro los numeros del input del usuario
@@ -277,8 +277,9 @@ function borrarJuego(){ //Borrar datos de pantalla y variables
 }
 
 function siguienteInput(){ //Avanza al siguiente input cuando lleno
-    for (let i = 0; i < ARRAYNUMEROSUSUARIO.length -1 ; i++) {
-        document.getElementById(`numberGuess${i}`).addEventListener("input", function(event){verSiAvanzo(i)});
+    for (let i = 0; i < arrayNumerosUsuario.length -1 ; i++) {
+        // document.getElementById(`numberGuess${i}`).addEventListener("input", function(event){verSiAvanzo(i)});  // SIN JQUERY
+        $(`#numberGuess${i}`).on("input", function(event){verSiAvanzo(i)});
      }
 }
 
@@ -293,11 +294,11 @@ function verSiAvanzo (j){ //Chequea si el input esta lleno para avanzar o no
 
 /* function validarNumeroUsuario (){
     let noSeRepite = true
-    for (let i=0; i < ARRAYNUMEROSUSUARIO.length-1; i++){
+    for (let i=0; i < arrayNumerosUsuario.length-1; i++){
         if (noSeRepite == false){
             return false
-        } for (let j=i+1; j < ARRAYNUMEROSUSUARIO.length; j++){
-            if (ARRAYNUMEROSUSUARIO[i]==ARRAYNUMEROSUSUARIO[j]){
+        } for (let j=i+1; j < arrayNumerosUsuario.length; j++){
+            if (arrayNumerosUsuario[i]==arrayNumerosUsuario[j]){
             noSeRepite = false;
             return false
             }
@@ -318,9 +319,9 @@ function verSiAvanzo (j){ //Chequea si el input esta lleno para avanzar o no
         }
         let siEsCantidadNumeros = true
         separador = '';
-        ARRAYNUMEROSUSUARIO = numeroUsuario.split (separador) //Separa el numero del prompt en cant de numeros del array 
+        arrayNumerosUsuario = numeroUsuario.split (separador) //Separa el numero del prompt en cant de numeros del array 
 
-        if (ARRAYNUMEROSUSUARIO.length!= cantidadNumeros){ //Si el numero es mas corto o mas largo que la cant de numeros del array
+        if (arrayNumerosUsuario.length!= cantidadNumeros){ //Si el numero es mas corto o mas largo que la cant de numeros del array
             siEsCantidadNumeros = false
             alert(`Tienen que ser ${cantidadNumeros} numeros`);
         }
