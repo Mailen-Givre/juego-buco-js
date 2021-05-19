@@ -237,6 +237,9 @@ function comparar(){ //Compara el numero del usuario con el de la PC
     }
     cantidadDeIntentos += 1
     crearGuessLine() // Muestra las respuestas
+    if (buenas == 4) {
+        mostrarGanaste()
+    } 
 }
 
 function crearGuessLine() { // Muestra las respuestas
@@ -288,6 +291,34 @@ function verSiAvanzo (j){ //Chequea si el input esta lleno para avanzar o no
         document.getElementById(`numberGuess${j+1}`).focus()
     }
 }
+
+/* ANIMACIONES */
+animacionSuerte()
+
+function mostrarGanaste(){
+    $("#modalGanaste").show();
+    $(".close").click(function(){
+        $("#modalGanaste").hide();
+    })
+}
+
+function animacionSuerte(){
+$(".suerteImg").delay(2000)
+.show(2000)
+.animate({left:"50%"},5000)
+.animate ({opacity:"0"},"slow")
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Forma vieja en que validaba datos del input
