@@ -8,48 +8,35 @@
 
 /* Objeto usuario */
 class usuario {
-    constructor (nombre,puntaje,fecha){
+    constructor (nombre,intentos,fecha,tiempo){
         this.nombre = nombre;
-        this.puntaje = puntaje;
+        this.intentos = intentos;
         this.fecha = fecha;
+        this.tiempo = tiempo;
     }
     
     mostrarJugador () {
         console.log('nombre '+ this.nombre);
-        console.log('puntaje '+ this.puntaje);
+        console.log('intentos '+ this.intentos);
         console.log('fecha '+ this.fecha);
+        console.log('tiempo '+ this.tiempo);
     }
 }
 
-// let valorUsuarioEnElStorage = localStorage.usuariosTotales //  getItem string
-let valorUsuarioEnElStorage = localStorage.getItem('usuarioTotal') //  getItem string
 let usuariosTotales = []
-if (valorUsuarioEnElStorage != null){
-    usuariosTotales= JSON.parse(valorUsuarioEnElStorage) // objeto
-} 
+getUsuarios()
 
-const usuario1 = new usuario ('Nes',25, '22/04/2021');
-// usuario1.mostrarJugador();
 
-agregarUsuario(usuario1)
-
-usuariosTotales.forEach(myFunction);
-function myFunction(item, index) {
-// console.log(usuariosTotales[index].nombre);
-// console.log(usuariosTotales[index].puntaje);
-// console.log(usuariosTotales[index].fecha);
-usuariosTotales[index].mostrarJugador
-}
+// Niveles
+let nivel = 4
+getNivel()
 
 /* La computadora genera un número de 4 cifras que no se repiten */
-let cantidadNumeros = 4 // Cantidad de numeros a adivinar. Puede variar.
+
+let cantidadNumeros = nivel // Cantidad de numeros a adivinar. Puede variar.
 let arrayNumerosPc = new Array(cantidadNumeros); //Crear array del numero de la PC
 let numeroPC = 0
 let cantidadDeIntentos = 0
-generarNumeros()
-console.log ('Numero a adivinar' + arrayNumerosPc)
-
-
 
 /* Pedirle numeros al usuario */
 let arrayNumerosUsuario = new Array(cantidadNumeros); // Crear array del numero del usuario
@@ -59,7 +46,7 @@ $("#adivinar").click(adivinar); //Cuando se hace click en el boton adivinar // E
 $("#reiniciar").click(resetear); //Se resetea al hacer click en reiniciar
 
 /* Errores */
-const arrayTextoErrores = ["*Falta llenar casilleros","*Ingresa numeros","*Estas repitiendo un numero"]
+const arrayTextoErrores = ["*Falta llenar casilleros","*Solo pueden ser números","*Estas repitiendo un número"]
 let errorVacio = ""
 let errorRepetido = ""
 let errorNoNumero = ""
@@ -67,8 +54,20 @@ let errorNoNumero = ""
 /* Comparacion */
 let buenas
 let regulares
+    
+
+resetear()
+
 
 /* FUNCIONES */
+
+function resetear(){
+    borrarJuego ()
+    generarNumeros()
+    iniciarIntervalo()
+    console.log ('Numero a adivinar' + arrayNumerosPc)
+    document.getElementById(`numberGuess0`).focus()
+}
 
 function agregarUsuario (usuarioNuevo){
     usuariosTotales.push (usuarioNuevo)
@@ -81,7 +80,7 @@ function agregarUsuario (usuarioNuevo){
 function generarNumeros() { //Genera x cantidad de numeros que no se repiten entre si
     numeroPC = randomNumber () //Pide por primera vez un numero random
     let posicion=0
-    while (posicion < arrayNumerosPc.length) { 
+    while (posicion < cantidadNumeros) { 
         if (validarPC(posicion)) { //valida si no se repite el numero
             arrayNumerosPc[posicion]= numeroPC //rellena el array con el numero random
             posicion += 1 //avanza a la siguiente posicion del array
@@ -127,6 +126,7 @@ function crearNumberGuess() { //Genero los inputs para que el usuario escriba su
 }
 
 function adivinar(){ //Cuando hace click en el boton adivinar
+    document.getElementById(`numberGuess0`).focus()
     borrarErrores()
       if (validarNumeroUsuario()){
           crearArrayNumUsuario()
@@ -135,10 +135,7 @@ function adivinar(){ //Cuando hace click en el boton adivinar
       }  
 }
 
-function resetear(){ 
-    borrarJuego ()
-    generarNumeros()
-}
+
 
 function borrarErrores(){ //Borra los bordes rojos y los textos
     if (errorVacio != ""){
@@ -153,14 +150,14 @@ function borrarErrores(){ //Borra los bordes rojos y los textos
         document.getElementById("errores").removeChild(errorNoNumero);
         errorNoNumero = ""
     }
-    for (let i = 0; i < arrayNumerosUsuario.length; i++){
+    for (let i = 0; i < cantidadNumeros; i++){
     document.getElementById(`numberGuess${i}`).style.border = "none";
     }
 }
 
 function validarNumeroUsuario(){ //Chequeo si completo correctamente los inputs
     let esValido = true
-    for (let i = 0; i < arrayNumerosUsuario.length; i++){
+    for (let i = 0; i < cantidadNumeros; i++){
       let numUsuario=document.getElementById(`numberGuess${i}`).value
       if (numUsuario == ''|| numUsuario==' '){ //Si algun casillero esta vacio
           esValido = false
@@ -189,7 +186,6 @@ function validarNumeroUsuario(){ //Chequeo si completo correctamente los inputs
           errorRepetido = document.createElement("p")
           errorRepetido.innerText = arrayTextoErrores[2];  
           document.getElementById("errores").appendChild(errorRepetido)
-          /* alert('Estas repitiendo un numero'); */
       }
     }
     if (esValido){
@@ -200,10 +196,10 @@ function validarNumeroUsuario(){ //Chequeo si completo correctamente los inputs
 
 function validarSiRepetido (){ //Chequea si alguno de los numeros se repite 
     let noSeRepite = true
-    for (let i=0; i < arrayNumerosUsuario.length-1; i++){
+    for (let i=0; i < cantidadNumeros-1; i++){
         if (noSeRepite == false){
             return false
-        } for (let j=i+1; j < arrayNumerosUsuario.length; j++){
+        } for (let j=i+1; j < cantidadNumeros; j++){
             if (document.getElementById(`numberGuess${i}`).value==document.getElementById(`numberGuess${j}`).value){
             noSeRepite = false;
             document.getElementById(`numberGuess${i}`).style.border = "5px solid red";
@@ -238,7 +234,7 @@ function comparar(){ //Compara el numero del usuario con el de la PC
     cantidadDeIntentos += 1
     crearGuessLine() // Muestra las respuestas
     if (buenas == 4) {
-        mostrarGanaste()
+        ganaste()
     } 
 }
 
@@ -277,10 +273,12 @@ function borrarJuego(){ //Borrar datos de pantalla y variables
     for (let i = 0; i < cantidadNumeros; i++){ //borro los numeros del input del usuario
         document.getElementById(`numberGuess${i}`).value='' 
     }
+    $("#intentos").html('')
+    $("#tiempoJuego").html('')
 }
 
 function siguienteInput(){ //Avanza al siguiente input cuando lleno
-    for (let i = 0; i < arrayNumerosUsuario.length -1 ; i++) {
+    for (let i = 0; i < cantidadNumeros-1 ; i++) {
         // document.getElementById(`numberGuess${i}`).addEventListener("input", function(event){verSiAvanzo(i)});  // SIN JQUERY
         $(`#numberGuess${i}`).on("input", function(event){verSiAvanzo(i)});
      }
@@ -292,30 +290,112 @@ function verSiAvanzo (j){ //Chequea si el input esta lleno para avanzar o no
     }
 }
 
-/* ANIMACIONES */
-animacionSuerte()
+/* GANASTE */
 
-function mostrarGanaste(){
+function ganaste(){
+    document.getElementById("rta").innerHTML= JSON.stringify(arrayNumerosPc).replace(/,/g, '').replace('[', '').replace(']', '')
+    calcularTiempoTranscurrido()
+    animacionGanaste()
+    mostrarTiempoJuego()
+    $("#intentos").html(cantidadDeIntentos)
+    document.getElementById("salirGanaste").addEventListener("click", salirGanaste)
+    $('#escribirNombre p').remove();
+    $('#nombreUsuario').css('border-color','white');
+    document.getElementById("guardar").addEventListener("click", guardar)
+}
+
+function animacionGanaste(){    
     $("#modalGanaste").show();
     $(".close").click(function(){
         $("#modalGanaste").hide();
     })
 }
+function mostrarTiempoJuego(){
+ let tiempoJuego =''
+ if(hora>1){
+    tiempoJuego += `${hora} horas `
+ } else if (hora==1){
+    tiempoJuego += `${hora} hora `
+ }
+ if (minutos>0){
+    tiempoJuego += `${minutos} minutos `
+ }
+ tiempoJuego += `${segundos} segundos`
 
-function animacionSuerte(){
-$(".suerteImg").delay(2000)
-.show(2000)
-.animate({left:"50%"},5000)
-.animate ({opacity:"0"},"slow")
+ $("#tiempoJuego").html(tiempoJuego)
+}
+
+function salirGanaste(){ 
+    $("#modalGanaste").hide();
+    resetear()
+}
+
+function guardar(){
+    let nombreUsuario = document.getElementById("nombreUsuario").value
+    if (nombreUsuario == ''){
+        $('#escribirNombre').append( "<p>*Por favor escribi tu nombre</p>" );
+        $('#nombreUsuario').css('border-color','red');
+    } else {
+
+        guardando(nombreUsuario)
+    }
+}
+
+function guardando(nombreUsuario){
+    const usuario1 = new usuario (nombreUsuario,cantidadDeIntentos, fechaDeHoy, segundosTranscurridos);
+    agregarUsuario(usuario1)
+    salirGanaste()
+}
+
+const URLGET = "../json/curiosidades.json"
+
+$.get(URLGET, function (respuesta, estado) { 
+    if(estado === "success"){
+      let random =Math.floor(Math.random()*respuesta.length);
+      $("#sabias").html(respuesta[random].curiosidad);
+    }
+})
+    
+// Puntajes
+function getUsuarios() {
+    let valorUsuarioEnElStorage = localStorage.getItem('usuarioTotal') //  getItem string
+    if (valorUsuarioEnElStorage != null){
+        usuariosTotales= JSON.parse(valorUsuarioEnElStorage) // objeto
+    } 
+}
+
+//Niveles
+function getNivel(){
+    let nivelString = localStorage.getItem('nivel') //  getItem string
+    if (nivelString != null){
+        nivel= JSON.parse(nivelString)
+    } 
 }
 
 
-
-
-
-
-
-
+// Enter = click Adivinar
+let enter = document.getElementById(`numberGuess${cantidadNumeros-1}`);
+enter.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) { //el numero 13 es carriage return (enter)
+    event.preventDefault();
+    document.getElementById("adivinar").click();
+  }
+});
+// Borrar anterior input
+for (let i = 1; i < cantidadNumeros ; i++) {
+    let backspace = document.getElementById(`numberGuess${i}`);
+    backspace.addEventListener("keydown", function(event) {
+        if (event.keyCode === 8) { //el numero 8 es backspace
+            event.preventDefault();
+            if (document.getElementById(`numberGuess${i}`).value == ""){
+                document.getElementById(`numberGuess${i-1}`).focus()
+                $(`#numberGuess${i-1}`).val("");
+            }  else {
+                $(`#numberGuess${i}`).val(""); //Si el campo del imput esta lleno solo borro sin retroceder
+            }
+        }
+     });
+ }
 
 
 

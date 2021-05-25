@@ -12,8 +12,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <script src="../js/jquery-3.6.0.js"defer></script>
+    <script src="../js/fecha.js"defer></script>
     <script src="../js/main.js"defer></script>
-    <!-- <script src="../js/fecha.js"></script> -->
 </head>
 <body class="fondoJugar">
     <header>
@@ -21,17 +21,21 @@
         <h1>Nivel 2</h1>
     </header>
     <div class="flex">
-        <dv>
+        <div>
+            <p class="centrar marginTop">Escribi un número:</p>
             <div class="centrar" id="numberGuessContainer"> </div>
             <div class="centrar" id="errores"></div>
             <div class="centrar">
                 <button id="adivinar" type="button">Adivinar</button>
             </div>
-            <div class="centrar botonesRendirseReiniciar">
-                <a href="../index.html"><button class="btn__naranja" type="button">Me rindo</button></a>
-                <button id="reiniciar" class="btn__verde" type="button">Reiniciar</button>
+            <div class="centrar flex">
+                <div>
+                    <button id="reiniciar" class="btn__verde" type="button">Reiniciar</button>
+                    <a href="../index.html"><button class="btn__naranja" type="button">Salir</button></a>
+                </div>
+                <img class="ternerito" src="../multimedia/jugar/ternerito.svg" alt="ternerito">
             </div>
-        </dv>
+        </div>
         <div>
             <div class="flexToroVaca">  
                 <div class="toroVaca"><img src="../multimedia/jugar/toro-01.svg" alt="toro"></div>
@@ -47,7 +51,30 @@
     <div id="modalGanaste" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <img src="../multimedia/jugar/ganaste.svg" alt="ganaste">
+          <div class="ganasteInfo centrar">
+              <div>
+                <h2>¡GANASTE!</h2>
+                <div class="flexCentrado rta">
+                    <h3>Respuesta:</h3>
+                    <p id="rta"></p>
+                </div>
+              </div>
+            <div class="flexStart intentos">
+                <h4>Intentos:</h4>
+                <p class="negro" id="intentos"> Aca van los intentos</p>
+            </div>
+            <div class="flexStart">
+                <h4>Tiempo:</h4>
+                <p class="negro" id="tiempoJuego"> Aca va el tiempo</p>
+            </div>
+            <div class="flexStart" id="escribirNombre">
+            <h4 class="escribi">Escribí tu nombre:</h4>
+            </div>
+            <input id="nombreUsuario" type="text" placeholder="Tu nombre">
+            <p id="sabias">Aca va la curiosidad</p>
+            <button id="guardar">Guardar</button>
+            <button id="salirGanaste" class="btn__naranja">Salir</button>
+          </div>
         </div>
       </div>
 </body>
