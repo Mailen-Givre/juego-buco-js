@@ -1,8 +1,5 @@
 /* Juego de los números - Bulls and Cows - Buco */
 
-//TODO boton me rindo
-//TODO html niveles
-//TODO html puntajes
 
 /* Objeto usuario */
 class usuario {
@@ -393,6 +390,16 @@ function getUsuarios() { // Consigue la info de los puntajes del storage y gener
     } 
 }
 
+
+//TODO responsive
+//TODO boton me rindo
+//TODO html niveles
+//TODO html puntajes
+//TODO repetidos mas
+//TODO SOB sobreescribir
+//TODO guarde nombre en modagyl ganaste
+//TODO empezar de nuevo en vez de reiniciar
+//TODO autoscroll
 
 //Forma vieja en que validaba datos del input
 

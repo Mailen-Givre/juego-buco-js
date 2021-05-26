@@ -117,7 +117,6 @@ p{
     box-shadow: 0 0 4px #5b59b6, 0px 15px #6cc6ff;
 }
 
-
 .flex{
     display: flex;
     justify-content: space-around;
@@ -276,17 +275,26 @@ button:active {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
-    background-image: url(../multimedia/jugar/ganaste.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+
 }
-  
+  .fondoGanaste{
+    background-image: url(../multimedia/jugar/ganaste.svg);
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+  }
+
+  .margen{
+      padding-top: 38vh;
+  }
+
   /* Modal Content/Box */
   .modal-content {
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     width: 40%; /* Could be more or less, depending on screen size */
-    height: 30vh;    
+/*     height: 30vh;     */
 }
   
   /* The Close Button */
@@ -322,11 +330,6 @@ button:active {
       height: 30px;
       font-size: 17px;
   }
-
-  .ganasteInfo{
-      margin-top: 250px;
-  }
-
 
   h2{
     font-family: 'Roboto', sans-serif;
