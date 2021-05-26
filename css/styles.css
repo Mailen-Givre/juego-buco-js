@@ -112,6 +112,11 @@ p{
     box-shadow: 0px 15px #6cc6ff;
     margin: 10px 15px;
 }
+.adivinarNumero:focus{
+    outline:none;
+    box-shadow: 0 0 4px #5b59b6, 0px 15px #6cc6ff;
+}
+
 
 .flex{
     display: flex;

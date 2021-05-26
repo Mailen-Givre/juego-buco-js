@@ -49,8 +49,8 @@ let errorRepetido = ""
 let errorNoNumero = ""
 
 /* Comparacion */
-let buenas = 0
-let regulares = 0
+let buenas
+let regulares
     
 resetear()
 
@@ -281,6 +281,8 @@ function borrarInputAnterior(){ //con backspace borra y retrocede al input anter
 
 /* Respuestas */
 function comparar(){ //Compara el numero del usuario con el de la PC
+    buenas=0
+    regulares=0
     for (let i=0; i < cantidadNumeros; i++){
         for (let j=0; j < cantidadNumeros; j++){
             if (arrayNumerosUsuario[i]==arrayNumerosPc[j]){
