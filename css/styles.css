@@ -98,7 +98,7 @@ p{
     margin-top: 15vh;
 }
 
-.numberGuess{
+.adivinarNumero{
     font-family: 'Roboto', sans-serif;
     color: #6cc6ff;
     font-size: 75px;
@@ -200,11 +200,11 @@ button:active {
     background-color: rgb(255, 255, 255, 0.1);
     border-radius: 15px;
 }
-.guessLine{
+.filaAdivinada{
     margin: 10px 0 10px 20px;
 }
 
-.numberGuessOld{
+.numeroAdivinado{
     font-family: 'Roboto', sans-serif;
     color: white;
     font-size: 45px;
@@ -247,7 +247,7 @@ button:active {
     padding: 2px 0;
 }
 
-#numberGuessContainer{
+#contenedorAdivinarNum{
     margin-bottom: 2vh;
 }
 
