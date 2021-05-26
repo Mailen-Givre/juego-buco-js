@@ -1,6 +1,6 @@
 const fecha = new Date()
 
-const fechaDeHoy = `${fecha.getDate()}/${Number(fecha.getMonth())+1}/${fecha.getFullYear()}`
+const fechaDeHoy = `${fecha.getDate()}/${Number(fecha.getMonth()) + 1}/${fecha.getFullYear()}`
 
 let inicio
 let hora

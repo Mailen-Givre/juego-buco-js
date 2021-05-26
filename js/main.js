@@ -1,10 +1,8 @@
 /* Juego de los números - Bulls and Cows - Buco */
 
-
 //TODO boton me rindo
 //TODO html niveles
 //TODO html puntajes
-
 
 /* Objeto usuario */
 class usuario {
@@ -27,10 +25,9 @@ getUsuarios()
 
 /* Niveles */
 let nivel = 4
-getNivel()
+getNivel() //trae el nivel del local storage
 
-/* La computadora genera un número de 4 cifras que no se repiten */
-
+/* La computadora genera un número de "x" cantidad de cifras que no se repiten */
 let cantidadNumeros = nivel // Cantidad de numeros a adivinar. Varia segun el nivel elegido en el hrml niveles
 let arrayNumerosPc = new Array(cantidadNumeros); //Crear array del numero de la PC
 let numeroPC = 0
@@ -52,8 +49,8 @@ let errorRepetido = ""
 let errorNoNumero = ""
 
 /* Comparacion */
-let buenas
-let regulares
+let buenas = 0
+let regulares = 0
     
 resetear()
 
@@ -61,7 +58,7 @@ resetear()
 const URLGET = "../json/curiosidades.json"
 $.get(URLGET, function (respuesta, estado) { 
     if(estado === "success"){
-      let random =Math.floor(Math.random()*respuesta.length);
+      let random =Math.floor(Math.random() * respuesta.length);
       $("#sabias").html(respuesta[random].curiosidad);
     }
 })
@@ -81,7 +78,7 @@ function resetear(){
     borrarJuego ()
     generarNumeros()
     iniciarIntervalo()
-    console.log ('Numero a adivinar' + arrayNumerosPc)
+    console.log ('Numero a adivinar ' + arrayNumerosPc)
     document.getElementById(`adivinarNumero0`).focus()
 }
 
@@ -111,7 +108,7 @@ function generarNumeros() { //Genera x cantidad de numeros que no se repiten ent
 }
 
 function randomNumber() { //Genera 1 numero al azar
-    return Math.floor(Math.random()*10);
+    return Math.floor(Math.random() * 10);
 }
 
 function validarPC(posicionf){ //Se fija que no se repita el numero
@@ -146,11 +143,10 @@ function crearAdivinarNumero() { //Genero los inputs para que el usuario escriba
 }
 
 /* Usuario escribe numero */
-
 function adivinar(){ //Cuando hace click en el boton adivinar
     document.getElementById(`adivinarNumero0`).focus()
     borrarErrores()
-      if (validarNumeroUsuario()){
+    if (validarNumeroUsuario()){
           crearArrayNumUsuario()
           comparar()
           borrarInput()
@@ -179,7 +175,7 @@ function validarNumeroUsuario(){ //Chequeo si completo correctamente los inputs
     let esValido = true
     for (let i = 0; i < cantidadNumeros; i++){
       let numUsuario=document.getElementById(`adivinarNumero${i}`).value
-      if (numUsuario == ''|| numUsuario==' '){ //Si algun casillero esta vacio
+      if (numUsuario == ''|| numUsuario==' '){ //Si algun casillero esta vacio o tiene un espacio
           esValido = false
           document.getElementById(`adivinarNumero${i}`).style.border = "5px solid red";
           if (errorVacio ==""){
@@ -260,7 +256,7 @@ function enterAdivinar() { // si estas en el ultimo input el enter = click Adivi
     let enter = document.getElementById(`adivinarNumero${cantidadNumeros-1}`);
     enter.addEventListener("keyup", function(event) {
       if (event.keyCode === 13) { //el numero 13 es carriage return (enter)
-        event.preventDefault();
+        event.preventDefault(); //TODO averiguar que hace xD
         document.getElementById("adivinar").click();
       }
     });
@@ -284,10 +280,7 @@ function borrarInputAnterior(){ //con backspace borra y retrocede al input anter
 }
 
 /* Respuestas */
-
 function comparar(){ //Compara el numero del usuario con el de la PC
-    buenas = 0
-    regulares = 0
     for (let i=0; i < cantidadNumeros; i++){
         for (let j=0; j < cantidadNumeros; j++){
             if (arrayNumerosUsuario[i]==arrayNumerosPc[j]){
@@ -301,7 +294,7 @@ function comparar(){ //Compara el numero del usuario con el de la PC
     }
     cantidadDeIntentos += 1
     crearFilaAdivinada() // Muestra las respuestas
-    if (buenas == 4) {
+    if (buenas == cantidadNumeros) {
         ganaste()
     } 
 }
@@ -328,9 +321,8 @@ function crearFilaAdivinada() { // Muestra las respuestas
 }
       
 /* Ganaste */
-
 function ganaste(){ // Al ganar muestra info de cual era el nro, en cuantos interntos y tmpo lo adivino, pide el nombre y muestra una frase de curiosidades
-    document.getElementById("rta").innerHTML= JSON.stringify(arrayNumerosPc).replace(/,/g, '').replace('[', '').replace(']', '')
+    document.getElementById("rta").innerHTML= JSON.stringify(arrayNumerosPc).replace(/,/g, '').replace('[', '').replace(']', '') //TODO 1 solo replace regex?
     calcularTiempoTranscurrido()
     animacionGanaste() // que aparezca el modal
     mostrarTiempoJuego()
@@ -374,7 +366,6 @@ function guardar(){ // si esta completo el input de nombre guarda la info del us
         $('#escribirNombre').append( "<p>*Por favor escribi tu nombre</p>" );
         $('#nombreUsuario').css('border-color','red');
     } else {
-
         guardando(nombreUsuario)
     }
 }
@@ -386,7 +377,6 @@ function guardando(nombreUsuario){ //info del usuario guardada en el storage y s
 }
 
 /* Puntaje en storage */
-
 function agregarUsuario (usuarioNuevo){ // Agrega info de puntajes al storage
     usuariosTotales.push (usuarioNuevo)
     // localStorage.usuariosTotales = JSON.stringify(usuariosTotales) // setItem string
