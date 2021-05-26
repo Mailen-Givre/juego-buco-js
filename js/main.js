@@ -317,6 +317,8 @@ function crearFilaAdivinada() { // Muestra las respuestas
       if (cantidadDeIntentos!=1){
         document.getElementById(`numberAnswer${cantidadDeIntentos-1}`).style.backgroundImage = "linear-gradient(to top, #4b99fd, #4185f7)"; //cambia el color de las rtas anteriores
       }
+      $('#respuestas').animate({scrollTop: 11156}, 400); //TODO rechequear
+
 }
       
 /* Ganaste */
@@ -397,8 +399,7 @@ function getUsuarios() { // Consigue la info de los puntajes del storage y gener
 //TODO html puntajes
 //TODO repetidos mas
 //TODO SOB sobreescribir
-//TODO guarde nombre en modagyl ganaste
-//TODO empezar de nuevo en vez de reiniciar
+//TODO guarde nombre en modal ganaste
 //TODO autoscroll
 
 //Forma vieja en que validaba datos del input
