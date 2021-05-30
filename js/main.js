@@ -3,11 +3,12 @@
 
 /* Objeto usuario */
 class usuario {
-    constructor (nombre,intentos,fecha,tiempo){
+    constructor (nombre,intentos,fecha,tiempo,nivel){
         this.nombre = nombre;
         this.intentos = intentos;
         this.fecha = fecha;
         this.tiempo = tiempo;
+        this.nivel = nivel;
     }
     mostrarJugador () {
         console.log('nombre '+ this.nombre);
@@ -21,6 +22,7 @@ let usuariosTotales = []
 getUsuarios()
 
 /* Niveles */
+let nivel
 let nivelCantidad = 4
 getNivel() //trae el nivel del local storage
 
@@ -67,7 +69,6 @@ $.get(URLGET, function (respuesta, estado) {
 
 /* Niveles */
 function getNivel(){
-    let nivel
     let nivelString = localStorage.getItem('nivel') //  getItem string
     if (nivelString != null){
         nivel= JSON.parse(nivelString)
@@ -413,7 +414,7 @@ function guardar(){ // si esta completo el input de nombre guarda la info del us
 }
 
 function guardando(nombreUsuario){ //info del usuario guardada en el storage y sale
-    const usuario1 = new usuario (nombreUsuario,cantidadDeIntentos, fechaDeHoy, segundosTranscurridos);
+    const usuario1 = new usuario (nombreUsuario,cantidadDeIntentos, fechaDeHoy, segundosTranscurridos, nivel);
     agregarUsuario(usuario1)
     salirGanaste()
 }
