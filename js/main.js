@@ -23,7 +23,6 @@ getUsuarios()
 
 /* Niveles */
 let nivel = 2
-$("#nivelnro").html(`Nivel 2`)
 let nivelCantidad = 4
 getNivel() //trae el nivel del local storage
 
