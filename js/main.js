@@ -69,6 +69,7 @@ $.get(URLGET, function (respuesta, estado) {
 
 /* Niveles */
 function getNivel(){
+    $("#nivelnro").html(`Nivel ${nivel}`)
     let nivelString = localStorage.getItem('nivel') //  getItem string
     if (nivelString != null){
         nivel= JSON.parse(nivelString)
