@@ -72,13 +72,13 @@ function getNivel(){
     let nivelString = localStorage.getItem('nivel') //  getItem string
     if (nivelString != null){
         nivel= JSON.parse(nivelString)
+        $("#nivelnro").html(`Nivel ${nivel}`)
+        if (nivel==1){
+            nivelCantidad = 3
+        } else if (nivel==2){
+            nivelCantidad = 4
+        } else {nivelCantidad = 5}
     }
-    $("#nivelnro").html(`Nivel ${nivel}`)
-    if (nivel==1){
-        nivelCantidad = 3
-    } else if (nivel==2){
-        nivelCantidad = 4
-    } else {nivelCantidad = 5}
 }
 
 /* Arranca de 0 */
