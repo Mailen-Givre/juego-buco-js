@@ -455,18 +455,19 @@ button{
 }
 
 .puntajes{
-    width: 70vw;
+    width: 65vw;
     height: 500px;
     overflow-y: scroll;
     background-color: rgb(255, 255, 255, 0.1);
     border-radius: 15px;
-    margin: 40px auto;
+    margin: 10px auto;
+    padding: 10px 10px;
 }
 
 .flex-vertical{
     display: flex;
     flex-direction: column;
-    margin-top: 16px;
+    margin-top: 56px;
 }
 
 .btn__borde{
@@ -478,6 +479,45 @@ button{
     background-color: #4185f7;
 }
 
-.espaciosTexto{
-    word-spacing: 2em;
+.titulosPuntaje{
+    margin-top: 20px;
+    width: 65vw;
+}
+
+.width{
+    width: 100%;
+}
+
+.margenIzq{
+    margin-left: 60px;
+}
+
+.imgSize{
+    height: 5em;
+    margin: 20px 30%;
+}
+
+.imgSizeG{
+    height: 10em;
+    margin: 20px 30%;
+    
+}
+
+.instrucciones{
+    width: 65vw;
+    background-color: rgb(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 50px auto;
+    padding: 30px 50px;
+}
+
+.flecha{
+    height: 5em;
+}
+
+.flechas{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

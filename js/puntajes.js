@@ -55,10 +55,10 @@ function muestroPuntaje() {
         return a.intentos - b.intentos || a.tiempo - b.tiempo ;
     });
     
-    usuariosTotales.forEach(element => {
+    usuariosTotales.forEach((element,i) => {
 
 /*         let info = `${element.nombre} ${element.fecha}  ${element.intentos} ${convertirTiempo(element.tiempo)}` */
-        $('#puntajes').append(`<p class="flex" ><span>${element.nombre}</span><span>${element.fecha}</span><span>${element.intentos}</span><span>${convertirTiempo(element.tiempo)}</span></p>`)
+        $('#puntajes').append(`<p class="flex"><span class="centrar width">${i+1}</span><span class="centrar width">${element.nombre}</span><span class="centrar width">${element.fecha}</span><span class="centrar width">${element.intentos}</span><span class="centrar width">${convertirTiempo(element.tiempo)}</span></p>`)
     });
 
 }

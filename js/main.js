@@ -442,8 +442,6 @@ function getNombre(){
 }
 
 //TODO responsive
-//TODO html niveles
-//TODO html puntajes
 //TODO html como jugar
 //TODO repetidos mas
 //TODO correcciones profe
