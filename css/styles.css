@@ -80,7 +80,7 @@ h1{
     font-family: 'Roboto', sans-serif;
     color: white;
     font-size: 40px;
-    margin: 30px 0 20px 35vw;
+    margin: 30px auto;
 }
 
 p{
@@ -238,6 +238,7 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    word-spacing: 0.5em
 }
 
 #errores {
@@ -390,4 +391,67 @@ button:active {
 }
 #escribirNombre p{
     color: red;
+}
+/* .altura{
+    height: 100px;
+} */
+
+.modal-rendirse{
+    background: linear-gradient(to right, #8ee048, #65cd5d);
+    border-radius: 2em;
+}
+#rtaRendirse{
+    background-color: white;
+    margin-top: 20px;
+    padding: 10px 50px;
+    border-radius: 2em;
+}
+
+.elegirNivel{
+    border: 3px solid white;
+    width: 30%;
+    height: 200px;
+    border-radius: 20px;
+    margin: 100px auto;
+}
+
+.blanco{
+    color: white;
+}
+
+.nivelCuadrados{
+    color: #6cc6ff;
+    width: 55px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 10px #6cc6ff;
+    margin: 10px 5px;
+}
+
+.nivelLineas{
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 10px 5px;
+
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.masMenos{
+    width: 10%;
+    margin: auto 10px;
+}
+
+.puntajes{
+    width: 70vw;
+    height: 500px;
+    overflow-y: scroll;
+    background-color: rgb(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 40px auto;
 }

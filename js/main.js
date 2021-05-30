@@ -21,14 +21,15 @@ let usuariosTotales = []
 getUsuarios()
 
 /* Niveles */
-let nivel = 4
+let nivelCantidad = 4
 getNivel() //trae el nivel del local storage
 
 /* La computadora genera un número de "x" cantidad de cifras que no se repiten */
-let cantidadNumeros = nivel // Cantidad de numeros a adivinar. Varia segun el nivel elegido en el hrml niveles
+let cantidadNumeros = nivelCantidad // Cantidad de numeros a adivinar. Varia segun el nivel elegido en el hrml niveles
 let arrayNumerosPc = new Array(cantidadNumeros); //Crear array del numero de la PC
 let numeroPC = 0
 let cantidadDeIntentos = 0
+let respuestaPC
 
 /* Pedirle numeros al usuario */
 let arrayNumerosUsuario = new Array(cantidadNumeros); // Crear array del numero del usuario
@@ -36,8 +37,10 @@ crearAdivinarNumero() //Crear inputs para que el usuario escriba sus numeros
 siguienteInput() //Pasa al siguiente input al estar lleno
 borrarInputAnterior() //Backspace borra input o va al anterior
 enterAdivinar() //Enter = boton adivinar
+sobreescribirInput()
 $("#adivinar").click(adivinar); //Cuando se hace click en el boton adivinar // EVENTO CON JQUERY 
 $("#reiniciar").click(resetear); //Se resetea al hacer click en reiniciar
+$("#rendirse").click(rendirse)
 
 /* Errores */
 const arrayTextoErrores = ["*Falta llenar casilleros","*Solo pueden ser números","*Estas repitiendo un número"]
@@ -64,10 +67,17 @@ $.get(URLGET, function (respuesta, estado) {
 
 /* Niveles */
 function getNivel(){
+    let nivel
     let nivelString = localStorage.getItem('nivel') //  getItem string
     if (nivelString != null){
         nivel= JSON.parse(nivelString)
-    } 
+    }
+    $("#nivelnro").html(`Nivel ${nivel}`)
+    if (nivel==1){
+        nivelCantidad = 3
+    } else if (nivel==2){
+        nivelCantidad = 4
+    } else {nivelCantidad = 5}
 }
 
 /* Arranca de 0 */
@@ -102,6 +112,7 @@ function generarNumeros() { //Genera x cantidad de numeros que no se repiten ent
             numeroPC=randomNumber() //propone un nuevo numero para la siguiente posicion
         }
     }
+    respuestaPC = JSON.stringify(arrayNumerosPc).replace(/,/g, '').replace('[', '').replace(']', '')
 }
 
 function randomNumber() { //Genera 1 numero al azar
@@ -243,6 +254,14 @@ function siguienteInput(){ //Avanza al siguiente input cuando lleno
      }
 }
 
+function sobreescribirInput(){ 
+    for (let i = 0; i < cantidadNumeros ; i++) {
+        $(`#adivinarNumero${i}`).focus(function () {
+            $(this).select();
+         });
+     }
+}
+
 function verSiAvanzo (j){ //Chequea si el input esta lleno para avanzar o no
     if(document.getElementById(`adivinarNumero${j}`).length = 1){
         document.getElementById(`adivinarNumero${j+1}`).focus()
@@ -274,6 +293,21 @@ function borrarInputAnterior(){ //con backspace borra y retrocede al input anter
             }
          });
      }
+}
+
+function rendirse(){    //muestra y oculta el modal rendirse
+    $("#rtaRendirse").html(`Número: ${respuestaPC}`);
+    $("#modalRendirse").show(); 
+    $(".close").click(function(){ //cierra el modal en la X pero no resetea el juego
+        $("#modalRendirse").hide();
+    })
+    $("#salirRendirse").click(function(){
+        $("#modalRendirse").hide();
+    })
+    $("#jugarNuevamente").click(resetear)
+    $("#jugarNuevamente").click(function(){
+        $("#modalRendirse").hide();
+    })
 }
 
 /* Respuestas */
@@ -317,13 +351,16 @@ function crearFilaAdivinada() { // Muestra las respuestas
       if (cantidadDeIntentos!=1){
         document.getElementById(`numberAnswer${cantidadDeIntentos-1}`).style.backgroundImage = "linear-gradient(to top, #4b99fd, #4185f7)"; //cambia el color de las rtas anteriores
       }
-      $('#respuestas').animate({scrollTop: 11156}, 400); //TODO rechequear
 
+    // $('#respuestas').animate({scrollTop:$('#respuestas').height()}, 100);
+    /* $('#respuestas').animate({scrollTop: $('#respuestas').offset().top}, 1000); */
+    /* document.getElementById('respuestas').scrollTop = document.getElementById('respuestas').scrollHeight */
+    document.getElementById('respuestas').scrollTo({top: document.getElementById('respuestas').scrollHeight, behavior: 'smooth'}); // autoscroll de las rtas para que muestre la ultima
 }
       
 /* Ganaste */
 function ganaste(){ // Al ganar muestra info de cual era el nro, en cuantos interntos y tmpo lo adivino, pide el nombre y muestra una frase de curiosidades
-    document.getElementById("rta").innerHTML= JSON.stringify(arrayNumerosPc).replace(/,/g, '').replace('[', '').replace(']', '') //TODO 1 solo replace regex?
+    document.getElementById("rta").innerHTML= respuestaPC
     calcularTiempoTranscurrido()
     animacionGanaste() // que aparezca el modal
     mostrarTiempoJuego()
@@ -332,6 +369,7 @@ function ganaste(){ // Al ganar muestra info de cual era el nro, en cuantos inte
     $('#escribirNombre p').remove(); // borra error de falta nombre
     $('#nombreUsuario').css('border-color','white'); // borra bordes rojos de error
     document.getElementById("guardar").addEventListener("click", guardar)
+    $("#nombreUsuario").html(getNombre())
 }
 
 function animacionGanaste(){    //muestra y oculta el modal ganaste
@@ -368,6 +406,9 @@ function guardar(){ // si esta completo el input de nombre guarda la info del us
         $('#nombreUsuario').css('border-color','red');
     } else {
         guardando(nombreUsuario)
+        let nombre = $("input").val()
+        nombre = JSON.stringify(nombre)
+        localStorage.setItem('nombre', nombre)
     }
 }
 
@@ -377,7 +418,7 @@ function guardando(nombreUsuario){ //info del usuario guardada en el storage y s
     salirGanaste()
 }
 
-/* Puntaje en storage */
+/* Local storage */
 function agregarUsuario (usuarioNuevo){ // Agrega info de puntajes al storage
     usuariosTotales.push (usuarioNuevo)
     // localStorage.usuariosTotales = JSON.stringify(usuariosTotales) // setItem string
@@ -392,15 +433,20 @@ function getUsuarios() { // Consigue la info de los puntajes del storage y gener
     } 
 }
 
+function getNombre(){
+    let nombreString = localStorage.getItem('nombre')
+    if (nombreString != null){
+        nombre= JSON.parse(nombreString)
+    } 
+}
 
 //TODO responsive
-//TODO boton me rindo
 //TODO html niveles
 //TODO html puntajes
+//TODO html como jugar
 //TODO repetidos mas
-//TODO SOB sobreescribir
-//TODO guarde nombre en modal ganaste
-//TODO autoscroll
+//TODO correcciones profe
+//TODO limpiar comentarios
 
 //Forma vieja en que validaba datos del input
 

@@ -18,7 +18,7 @@
 <body class="fondoJugar">
     <header>
         <a href="../index.html"><img src="../multimedia/isologo.png" alt="logo"></a>
-        <h1>Nivel 2</h1>
+        <h1 id="nivelnro"></h1>
     </header>
     <div class="flex">
         <div>
@@ -28,8 +28,9 @@
             <div class="centrar">
                 <button id="adivinar" type="button">Adivinar</button>
             </div>
-            <div class="centrar flex">
+            <div class="centrar flex altura">
                 <div>
+                    <button id="rendirse" class="btn__rosa" type="button">Me rindo</button>
                     <button id="reiniciar" class="btn__verde" type="button">Volver a empezar</button>
                     <a href="../index.html"><button class="btn__naranja" type="button">Salir</button></a>
                 </div>
@@ -72,10 +73,23 @@
             </div>
             <input id="nombreUsuario" type="text" placeholder="Tu nombre">
             <p id="sabias">Aca va la curiosidad</p>
-            <button id="guardar">Guardar</button>
             <button id="salirGanaste" class="btn__naranja">Salir</button>
+            <button id="guardar">Guardar</button>
           </div>
         </div>
       </div>
+
+    <div class="modal" id="modalRendirse">
+        <div class="modal-content modal-rendirse">
+            <span class="close">&times;</span>
+            <div class="centrar">
+                <div class="flexCentrado rta">
+                    <h2 id="rtaRendirse"></h2>
+                </div>
+                <button id="salirRendirse" class="btn__naranja">Salir</button>
+                <button id="jugarNuevamente"  class="btn-rosa">Jugar otra vez</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -14,8 +14,24 @@
     <script src="../js/jquery-3.6.0.js"defer></script>
     <script src="../js/niveles.js"defer></script>
 </head>
-<body>
-    <input type="number" min="3" max="5" value="4">
-    <a href="../index.html"><button class="btn__naranja" type="button">Salir</button></a>
+<body class="fondoJugar">
+    <header>
+        <a href="../index.html"><img src="../multimedia/isologo.png" alt="logo"></a>
+        <h1>Elegí el nivel</h1>
+    </header>
+    <div class="elegirNivel centrar">
+        <h3 id="nivelTitulo" class="blanco"></h3>
+        <div class="flex">        
+            <h3 id="menos" class="blanco cursor masMenos"></h3>
+            <div class="nivelCuadrados"></div>
+            <div class="nivelCuadrados"></div>
+            <div class="nivelCuadrados"></div>
+            <div id="nivel2" class="nivelCuadrados"></div>
+            <div id="nivel3" class="nivelCuadrados"></div>
+            <h3 id="mas" class="blanco cursor masMenos"></h3>
+        </div>
+
+    </div>
+    <a href="../index.html"><button class="btn__naranja" type="button">Guardar y salir</button></a>
 </body>
 </html>
