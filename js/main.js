@@ -22,7 +22,7 @@ let usuariosTotales = []
 getUsuarios()
 
 /* Niveles */
-let nivel
+let nivel = 2
 let nivelCantidad = 4
 getNivel() //trae el nivel del local storage
 
@@ -442,7 +442,6 @@ function getNombre(){
 }
 
 //TODO responsive
-//TODO html como jugar
 //TODO repetidos mas
 //TODO correcciones profe
 //TODO limpiar comentarios
