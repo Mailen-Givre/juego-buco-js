@@ -12,14 +12,22 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <script src="../js/jquery-3.6.0.js"defer></script>
+    <script src="../js/clases.js"defer></script>
+    <script src="../js/variables.js"defer></script>
+    <script src="../js/localStorage.js"defer></script>
+    <script src="../js/manejoInput.js"defer></script>
     <script src="../js/fecha.js"defer></script>
+    <script src="../js/borrarJuego.js"defer></script>
+    <script src="../js/ganaste.js"defer></script>
+    <script src="../js/numeroPC.js"defer></script>
     <script src="../js/main.js"defer></script>
 </head>
-<body class="fondoJugar">
+<body>
     <header>
         <a href="../index.html"><img src="../multimedia/isologo.png" alt="logo"></a>
         <h1 id="nivelnro">Nivel 2</h1>
     </header>
+    <h5 class="centrar marginTopS">Adiviná el número</h5>
     <div class="flex">
         <div>
             <p class="centrar marginTop">Escribi un número:</p>
@@ -28,11 +36,11 @@
             <div class="centrar">
                 <button id="adivinar" class="btn__violeta" type="button">Adivinar</button>
             </div>
-            <div class="centrar flex altura">
+            <div class="centrar flex">
                 <div>
-                    <button id="rendirse" class="btn__rosa" type="button">Me rindo</button>
+                    <button id="rendirse" class="btn__naranja" type="button">Me rindo</button>
                     <button id="reiniciar" class="btn__verde" type="button">Volver a empezar</button>
-                    <a href="../index.html"><button class="btn__naranja" type="button">Salir</button></a>
+                    <a href="../index.html"><button class="btn__rosa" type="button">Salir</button></a>
                 </div>
                 <img class="ternerito" src="../multimedia/jugar/ternerito.svg" alt="ternerito">
             </div>
@@ -42,39 +50,39 @@
                 <div class="toroVaca"><img src="../multimedia/jugar/toro-01.svg" alt="toro"></div>
                 <div class="toroVaca"><img src="../multimedia/jugar/vaca-01.svg" alt="vaca"></div>
             </div>
-            <div id="respuestas"  class="respuestas scrollbar centrar">
+            <div id="respuestas"  class="respuestas centrar">
             </div>
         </div>        
     </div>
-    <div class="suerteImg">
-        <img src="../multimedia/jugar/suerteJugando.svg" alt="Suerte">
-    </div>
+
     <div id="modalGanaste" class="modal">
         <div class="modal-content ">
           <span class="close">&times;</span>
           <div class="centrar fondoGanaste">
-              <div class="margen">
+              <div class="margenGanaste">
                 <h2>¡GANASTE!</h2>
-                <div class="flexCentrado rta">
+                <div class="flexCenter rta">
                     <h3>Respuesta:</h3>
                     <p id="rta"></p>
                 </div>
               </div>
-            <div class="flexStart intentos">
-                <h4>Intentos:</h4>
-                <p class="negro" id="intentos"> Aca van los intentos</p>
-            </div>
-            <div class="flexStart">
-                <h4>Tiempo:</h4>
-                <p class="negro" id="tiempoJuego"> Aca va el tiempo</p>
-            </div>
-            <div class="flexStart" id="escribirNombre">
-            <h4 class="escribi">Escribí tu nombre:</h4>
-            </div>
-            <input id="nombreUsuario" type="text" placeholder="Tu nombre">
-            <p id="sabias">Aca va la curiosidad</p>
-            <button id="salirGanaste" class="btn__naranja">Salir</button>
-            <button id="guardar" class="btn__violeta">Guardar</button>
+                <div class="flexCenter marginTopS">
+                    <div class="flexStart">
+                        <h4>Intentos:</h4>
+                        <p class="negro" id="intentos"> Aca van los intentos</p>
+                    </div>
+                    <div class="flexStart">
+                        <h4>Tiempo:</h4>
+                        <p class="negro" id="tiempoJuego"> Aca va el tiempo</p>
+                    </div>
+                </div>
+                <div class="flexStart" id="escribirNombre">
+                <h4 class="escribi">Escribí tu nombre:</h4>
+                </div>
+                <input id="nombreUsuario" type="text" placeholder="Tu nombre">
+                <p id="sabias" class="marginTopS">Aca va la curiosidad</p>
+                <button id="salirGanaste" class="btn__rosa">Salir</button>
+                <button id="guardar" class="btn__naranja">Guardar</button>
           </div>
         </div>
       </div>
@@ -83,11 +91,28 @@
         <div class="modal-content modal-rendirse">
             <span class="close">&times;</span>
             <div class="centrar">
-                <div class="flexCentrado rta">
+                <div class="flexCenter rta">
                     <h2 id="rtaRendirse"></h2>
                 </div>
-                <button id="salirRendirse" class="btn__naranja">Salir</button>
-                <button id="jugarNuevamente"  class="btn__violeta">Jugar otra vez</button>
+                <button id="salirRendirse" class="btn__rosa">Salir</button>
+                <button id="jugarNuevamente"  class="btn__verde">Jugar otra vez</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalInstrucciones">
+        <div class="modal-content modal-rendirse">
+            <span class="close">&times;</span>
+            <div class="centrar">
+                <div class="flexCenter rta">
+                    <h2 id="rtaRendirse">¿Ya sabés jugar?</h2>  
+                </div>
+                <button id="salirInstrucciones" class="btn__verde">¡Sí!</button>
+                <a href="../paginas/instrucciones.html"><button class="btn__rosa">No :(</button></a></br>
+                <div class="flexCenter">
+                    <input class="inputInstrucciones" type="checkbox" id="checkbox">
+                    <p>No volver a mostrar</p>  
+                </div>
             </div>
         </div>
     </div>
