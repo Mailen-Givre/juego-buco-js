@@ -105,8 +105,11 @@ input{
     justify-content: flex-start;
 }
 
-.centrar{
-    text-align: center;
+h2{
+    font-family: 'Roboto', sans-serif;
+    color: #74ba5c;
+    font-size: 50px;
+    margin: 0 0;
 }
 
 .centradoHorizontal{
@@ -120,6 +123,26 @@ input{
 
 /* Botones */
 
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flexStart{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.margenIzq{
+    margin-left: 3vw;
+}
+
+/* Botones */
 button{
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
@@ -276,8 +299,6 @@ header img{
 }
 
 .toroVaca{
-    /* width: 5vw; */
-    /* height: 11vh; */
     width: 13vw;
     border-radius: 0.5vw;
     background-image: linear-gradient(to top, #4b99fd, #4185f7);
@@ -288,8 +309,6 @@ header img{
     width: 90%;
     height: 30vh;
     margin: 0 auto;
-    /* width: 40vw;
-    height: 60vh; */
     overflow-y: scroll;
     background-color: rgb(255, 255, 255, 0.1);
     border-radius: 1vw;
@@ -327,13 +346,11 @@ header img{
 .numeroAdivinado{
     font-family: 'Roboto', sans-serif;
     color: white;
-    /* font-size: 45px; */
     font-size: 25px;
     border: none;
     text-align: center;
     width: 10vw;
     padding: 5px;
-    /* height: 10vh; */
     border-radius: 1vw;
     background-image: linear-gradient(to top, #4b99fd, #4185f7);
     margin: 0 0.5vw;
@@ -344,10 +361,8 @@ header img{
     font-family: 'Roboto', sans-serif;
     color: white;
     font-size: 25px;
-    /* font-size: 45px; */
     border: none;
     width: 20vw;
-    /* height: 10vh; */
     padding: 5px;
     border-radius: 1vw;
     background-image: linear-gradient(to top, #4b99fd, #4185f7);
@@ -361,15 +376,12 @@ header img{
 .adivinarNumero{
     font-family: 'Roboto', sans-serif;
     color: #6cc6ff;
-    /* font-size: 75px; */
     font-size: 55px;
     font-weight: 600;
     border: none;
     text-align: center;
     width: 15vw;
     height: 8vh;
-    /* width: 6vw; */
-   /*  height: 12vh; */
     border-radius: 1vw;
     background-color: white;
     box-shadow: 0 2vh #6cc6ff;
@@ -399,7 +411,6 @@ header img{
     color: #aaa;
     float: right;
     font-size: 40px;
-    /* font-size: 50px; */
     font-weight: bold;
 }
 
@@ -455,7 +466,6 @@ header img{
     background-size: cover;
     height: 90vh;
     padding: 10%;
-    /* height: 90vh; */
 }
 
 .marginBottomS{
@@ -477,7 +487,6 @@ header img{
 
 .modal h4{
     margin: 0;
-    /* width: 80%; */
 }
 
 .modal p{
@@ -486,7 +495,6 @@ header img{
 
 #rta{
     color: #69514c;
-    /* padding: 1vh 0; */
     margin: auto 0;
 }
 
@@ -520,7 +528,6 @@ input::placeholder{
     border-style: solid;
     border-radius: 0.5vw;
     width: 100%;
-    /* width: 80%; */
     height: 3vh;
     font-size: 17px;
 }
@@ -537,7 +544,6 @@ input::placeholder{
     margin-top: 1vh;
     padding: 1vh 1vw;
     border-radius: 0.5em;
-    /* border-radius: 2em; */
     color: #9f77fe;
 }
 

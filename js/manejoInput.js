@@ -6,16 +6,6 @@ function crearAdivinarNumero() { //Genero los inputs para que el usuario escriba
       /* document.getElementById("contenedorAdivinarNum").innerHTML = acumulador; */ //SIN JQUERY
       $("#contenedorAdivinarNum").html(`${acumulador}`); //Lo mismo con JQUERY
 
-    // OTRA FORMA DE HACER LO MISMO (lo dejo adrede)
-    // for (let i = 0; i < arrayNumerosUsuario.length; i++) {
-    //     let input = document.createElement("input")
-    //     document.getElementById("contenedorAdivinarNum").appendChild(input)
-    //     input.setAttribute("id", `adivinarNumero${i}`);
-    //     input.setAttribute("class", "adivinarNumero");
-    //     input.setAttribute("type", "text");
-    //     input.setAttribute("maxlength", "1");
-    //     input.setAttribute("name", "numero");
-    //  }
 }
 
 function borrarInput(){ //Borra el valor de los inputs
@@ -26,7 +16,6 @@ function borrarInput(){ //Borra el valor de los inputs
 
 function siguienteInput(){ //Avanza al siguiente input cuando lleno
     for (let i = 0; i < cantidadNumeros-1 ; i++) {
-        // document.getElementById(`adivinarNumero${i}`).addEventListener("input", function(event){verSiAvanzo(i)});  // SIN JQUERY
         $(`#adivinarNumero${i}`).on("input", function(event){verSiAvanzo(i)});
      }
 }
@@ -66,7 +55,7 @@ function enterAdivinar() { // si estas en el ultimo input el enter = click Adivi
     let enter = document.getElementById(`adivinarNumero${cantidadNumeros-1}`);
     enter.addEventListener("keyup", function(event) {
       if (event.keyCode === 13) { //el numero 13 es carriage return (enter)
-        event.preventDefault(); //TODO averiguar que hace xD
+        event.preventDefault(); 
         document.getElementById("adivinar").click();
       }
     });

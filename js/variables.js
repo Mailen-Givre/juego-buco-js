@@ -25,4 +25,4 @@ let buenas
 let regulares
 
 /* Curiosidades "AJAX" */
-const URLGET = "/json/curiosidades.json"
+const URLGET = "../json/curiosidades.json" //Dejo el doble punto para poder ejecutarlo desde el github pages

@@ -156,58 +156,5 @@ function crearFilaAdivinada() { // Muestra las respuestas
         document.getElementById(`numberAnswer${cantidadDeIntentos-1}`).style.backgroundImage = "linear-gradient(to top, #4b99fd, #4185f7)"; //cambia el color de las rtas anteriores
       }
 
-    // $('#respuestas').animate({scrollTop:$('#respuestas').height()}, 100);
-    /* $('#respuestas').animate({scrollTop: $('#respuestas').offset().top}, 1000); */
-    /* document.getElementById('respuestas').scrollTop = document.getElementById('respuestas').scrollHeight */
     document.getElementById('respuestas').scrollTo({top: document.getElementById('respuestas').scrollHeight, behavior: 'smooth'}); // autoscroll de las rtas para que muestre la ultima
 }
-
-//TODO diseno
-//TODO responsive
-//TODO repetidos mas
-//TODO limpiar comentarios
-
-//Forma vieja en que validaba datos del input
-
-/* function validarNumeroUsuario (){
-    let noSeRepite = true
-    for (let i=0; i < arrayNumerosUsuario.length-1; i++){
-        if (noSeRepite == false){
-            return false
-        } for (let j=i+1; j < arrayNumerosUsuario.length; j++){
-            if (arrayNumerosUsuario[i]==arrayNumerosUsuario[j]){
-            noSeRepite = false;
-            return false
-            }
-        }
-    }
-} */
-
-/* function pedirNumero(){
-    let numeroUsuario = 0 // numero que escribe el usuario
-    alert ('Intentá adivinar el número. Elegí 4 números que no se repitan.')
-    let numeroCorrecto = false
-    while (numeroCorrecto == false){  
-        numeroUsuario = prompt('Numero:'); //Pedir numero nuevamente
-        let siEsNumero = true
-        if (isNaN (numeroUsuario)){ //Si alguno de los caracteres no es numerico salta error
-            siEsNumero = false
-            alert('Tiene que ser un numero');
-        }
-        let siEsCantidadNumeros = true
-        separador = '';
-        arrayNumerosUsuario = numeroUsuario.split (separador) //Separa el numero del prompt en cant de numeros del array 
-
-        if (arrayNumerosUsuario.length!= cantidadNumeros){ //Si el numero es mas corto o mas largo que la cant de numeros del array
-            siEsCantidadNumeros = false
-            alert(`Tienen que ser ${cantidadNumeros} numeros`);
-        }
-        let siEsRepetido = true
-        if (validarNumeroUsuario() == false){ //Si alguno de los numeros se repite
-            siEsRepetido = false 
-            alert('Estas repitiendo un numero');
-        }
-        if(siEsNumero==true && siEsRepetido==true && siEsCantidadNumeros==true) 
-        {numeroCorrecto= true} //Tiene que cumplir todas las condiciones para que se apruebe
-    }
-} */
