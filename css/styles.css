@@ -1,17 +1,24 @@
+body{
+    background-color: #51a4fe;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 1.5vw;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    border-radius: 10px;
+    border-radius: 1vw;
     background: rgb(255, 255, 255, 0.1);
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgb(255, 255, 255, 0.4); 
-    border-radius: 10px;
+    border-radius: 1vw;
   }
   
   /* Handle on hover */
@@ -19,68 +26,12 @@
     background: rgb(255, 255, 255, 0.8); 
 }
 
-
-/* INDICE */
-body{
-    background-color: #8ee048;
-}
-.fondo{
-    background-image: url(../multimedia/indice/fondoIndice.jpg);
-    background-position: top center;
-	background-size:cover;
-	background-repeat: no-repeat;
-    width: 100%;
-    position:absolute;
-    z-index: -1;
-}
-
-.menuPosHorizontal{
-    display: flex;
-    justify-content: center;
-}
-
-.menu{
-    background-color: white;
-    width: 20vw;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    margin: 20vw 0 5vw 0;
-    border-radius: 2rem;
-}
-
-.botones{
-    margin-top: 30px;
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.botones img{
-    margin: 25px 0;
-}
-
-.botones img:hover{
-    transform: scale(1.4);
-}
-
-/* JUEGO */
-.fondoJugar{
-   background-color: #51a4fe;
-}
-header{
-    display: flex;
-    box-shadow: 0px  40px 20px #4a98fd;
-}
-header img{
-    height: 70px;
-    margin: 20px 0 0 20px;
-}
+/* Tipografias */
 h1{
     font-family: 'Roboto', sans-serif;
     color: white;
-    font-size: 40px;
-    margin: 30px auto;
+    margin: auto auto;
+    /* margin: 30px auto; */
 }
 
 p{
@@ -90,31 +41,52 @@ p{
     margin: 10px 0 0 0;
 }
 
-.centrar{
-    text-align: center;
-}
-
-.marginTop{
-    margin-top: 15vh;
-}
-
-.adivinarNumero{
+h2{
     font-family: 'Roboto', sans-serif;
-    color: #6cc6ff;
-    font-size: 75px;
-    font-weight: 600;
-    border: none;
-    text-align: center;
-    width: 115px;
-    height: 100px;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: 0px 15px #6cc6ff;
-    margin: 10px 15px;
+    color: #74ba5c;
+    font-size: 50px;
+    margin: 0 0;
 }
-.adivinarNumero:focus{
-    outline:none;
-    box-shadow: 0 0 4px #5b59b6, 0px 15px #6cc6ff;
+
+h3{
+    font-family: 'Roboto', sans-serif;
+    color: #69514c;
+    font-size: 25px;
+    margin: 15px 10px 10px 0;
+  }
+
+h4{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 10px 0 30px;
+}
+
+h5{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+input{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Colores */
+.negro{
+    color: black;
+}
+.blanco{
+    color: white;
+}
+
+/* Flex */
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .flex{
@@ -122,25 +94,59 @@ p{
     justify-content: space-around;
 }
 
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flexStart{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.centradoHorizontal{
+    margin: 0 auto;
+}
+
+.margenIzq{
+    margin-left: 3vw;
+}
+
+
+/* Botones */
+
 button{
     font-family: 'Roboto', sans-serif;
-    color: white;
-    font-size: 1.5vw;
+    font-size: 1rem;
     font-weight: 500;
-    width: 13vw;
+    width: 35vw;
     height: 6vh;
     border: none;
-    border-radius: 10px;
+    border-radius: 2.5vw;
     cursor:pointer;
-    margin: 3vh 10px;
-/*     margin-left: 60px; */
+    margin: 0 auto;
+    color: white;
+}
+
+.buttonIndex{
+    font-size: 1rem;
+    width: 100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .btn__violeta{
     background: linear-gradient(to right, #d798ff, #9f77fe);
-    box-shadow: 0px 12px #847ffe;
+    box-shadow: 0 1.5vh #847ffe;
 }
-
 
 .btn__violeta:hover {
     background: #9f77fe;
@@ -148,128 +154,260 @@ button{
 
 .btn__violeta:active {
     background: #9f77fe;
-    box-shadow: 0px 8px #6966cc;
-    transform: translateY(4px);
+    box-shadow: 0px 1vh #6966cc;
+    transform: translateY(0.5vh);
 }
 
 .btn__naranja{
     background: linear-gradient(to right, #fbc246, #fe9860);
-    box-shadow: 0px 12px #eb804a;
+    box-shadow: 0 1.5vh #eb804a;
 }
 .btn__naranja:hover{
     background: #fe9860;
 }
 .btn__naranja:active{
     background: #fe9860;
-    box-shadow: 0px 8px #b16037;
-    transform: translateY(4px);
+    box-shadow: 0px 1vh #b16037;
+    transform: translateY(0.5vh);
 }
 
 .btn__verde{
     background: linear-gradient(to right, #8ee048, #65cd5d);
-    box-shadow: 0px 12px #56c448;
+    box-shadow: 0 1.5vh #56c448;
 }
 .btn__verde:hover{
     background: #65cd5d;
 }
 .btn__verde:active{
     background: #65cd5d;
-    box-shadow: 0px 8px #429636;
-    transform: translateY(4px);
+    box-shadow: 0 1.5vh #429636;
+    transform: translateY(0.5vh);
 }
 
 .btn__rosa{
     background: linear-gradient(to right, #ffa0d4, #ff6bce);
-    box-shadow: 0px 12px #c35495;
+    box-shadow: 0 1.5vh #c35495;
 }
 .btn__rosa:hover{
     background: #ff6bce;
 }
 .btn__rosa:active{
     background: #ff6bce;
-    box-shadow: 0px 8px #944171;
-    transform: translateY(4px);
+    box-shadow: 0px 1vh #944171;
+    transform: translateY(0.5vh);
 }
 
-.toroVaca{
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    background-image: linear-gradient(to top, #4b99fd, #4185f7);
-    margin: 0 15px;
+.btn__borde{
+    border: 1px solid white;
+    background-color: rgb(255, 255, 255, 0.1);
 }
+
+.btn__seleccionado{
+    background-color: #4185f7;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+/* INDICE */
+.fondoColor{
+    background-color: linear-gradient(#4185f7, #8ee048);
+    z-index: -2;
+ }
+
+.fondo{
+    background-image: url(../multimedia/indice/fondoIndiceMobil.svg);
+    background-position: center;
+	background-size:cover;
+	background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+.menu{
+    background-color: white;
+    width: 45vw;
+    margin: auto 0;
+    border-radius: 2vw;
+    gap: 40px;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+}
+
+/* JUEGO */
+header{
+    display: flex;
+    box-shadow: 0 4vh 5vh #4a98fd;
+    height: 10vh;
+}
+
+header img{
+    position: absolute;
+    height: 6vh;
+    margin: 2vh 2vw;
+}
+
+.juego .flex {
+    display: block;
+}
+
+.juego .margin-top {
+    margin-top: 3vh;
+}
+
+.marginTop{
+    margin-top: 3vh;
+}
+
+.ternerito{
+    visibility: hidden;
+}
+
 .flexToroVaca{
     display: flex;
     justify-content:flex-end;
-    margin: 30px 25px 15px 0;
+    margin: 5vh 3vw 3vh 0;
 }
+
+.botonesJuego button{
+    width: 30vw !important;
+    margin: 40px 0;
+}
+
+.toroVaca{
+    /* width: 5vw; */
+    /* height: 11vh; */
+    width: 13vw;
+    border-radius: 0.5vw;
+    background-image: linear-gradient(to top, #4b99fd, #4185f7);
+    margin: 0 1vw;
+}
+
 .respuestas{
-    /* margin: 50px 60px 0 60px; */
-    width: 40vw;
-    height: 500px;
+    width: 90%;
+    height: 30vh;
+    margin: 0 auto;
+    /* width: 40vw;
+    height: 60vh; */
     overflow-y: scroll;
     background-color: rgb(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 1vw;
 }
+
+.respuestas .flex {
+    display: flex;
+}
+
+#errores {
+    height: 3vh;
+}
+
+#errores p{
+    color: red;
+    font-weight: 500;
+    background-color: #6cc6ff;
+    padding: 0.3vh 0;
+    font-size: 14px;
+}
+
+.adivinaNumero{
+    font-size: 27px;
+}
+
+.escribiNumero{
+    font-size: 18px;
+}
+
+/* en Js */
 .filaAdivinada{
-    margin: 10px 0 10px 20px;
+    margin: 1.2vh 0 1vh 1vw;
 }
 
 .numeroAdivinado{
     font-family: 'Roboto', sans-serif;
     color: white;
-    font-size: 45px;
+    /* font-size: 45px; */
+    font-size: 25px;
     border: none;
     text-align: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
+    width: 10vw;
+    padding: 5px;
+    /* height: 10vh; */
+    border-radius: 1vw;
     background-image: linear-gradient(to top, #4b99fd, #4185f7);
-    margin: 0 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: 0 0.5vw;
+    cursor:default;
 }
 
 .numberAnswer{
     font-family: 'Roboto', sans-serif;
     color: white;
-    font-size: 45px;
+    font-size: 25px;
+    /* font-size: 45px; */
     border: none;
-    text-align: center;
-    width: 200px;
-    height: 80px;
-    border-radius: 20px;
+    width: 20vw;
+    /* height: 10vh; */
+    padding: 5px;
+    border-radius: 1vw;
     background-image: linear-gradient(to top, #4b99fd, #4185f7);
-    margin: 0 20px;
+    margin: 0 1vw;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    word-spacing: 0.5em
+    justify-content:space-around;
+    cursor:default;
+    align-items: center; 
 }
 
-#errores {
-/*     margin-top: 3px; */
-    height: 50px;
+.adivinarNumero{
+    font-family: 'Roboto', sans-serif;
+    color: #6cc6ff;
+    /* font-size: 75px; */
+    font-size: 55px;
+    font-weight: 600;
+    border: none;
+    text-align: center;
+    width: 15vw;
+    height: 8vh;
+    /* width: 6vw; */
+   /*  height: 12vh; */
+    border-radius: 1vw;
+    background-color: white;
+    box-shadow: 0 2vh #6cc6ff;
+    margin: 2vh 1vw;
 }
-#errores p{
-    color: red;
-    font-weight: 500;
-    background-color: #6cc6ff;
-    padding: 2px 0;
+.adivinarNumero:focus{
+    outline:none;
+    box-shadow: 0 0 4px #5b59b6, 0px 15px #6cc6ff;
 }
 
 #contenedorAdivinarNum{
     margin-bottom: 2vh;
 }
 
-.botonesRendirseReiniciar{
-    margin-top: 100px;
-    display: flex;
+/* Modal */
+.modal-content {
+    margin: 50% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 55%; /* Could be more or less, depending on screen size */
 }
-.ternerito{
-    width: 65%;
-    padding-left: 2vw;
+
+.modalGanar{
+    padding: 20px;
+}
+
+.close { 
+    color: #aaa;
+    float: right;
+    font-size: 40px;
+    /* font-size: 50px; */
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .modal {
@@ -283,241 +421,273 @@ button{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
-
 }
-  .fondoGanaste{
+
+.modal button{
+    width: 30vw;
+}
+
+.modal h2{
+    font-size: 25px;;
+}
+
+.modal p{
+    font-size: 16px;
+}
+
+.modal-rendirse{
+    background: linear-gradient(to right, #d798ff, #9f77fe);
+    border-radius: 2em;
+}
+
+.inputInstrucciones[type="checkbox"]{
+    transform: scale(1.5)
+}
+
+#checkbox{
+    margin: 1.75vh 0.5vw 0 0;
+}
+
+.fondoGanaste{
     background-image: url(../multimedia/jugar/ganaste.svg);
     background-repeat:no-repeat;
     background-position: center;
     background-size: cover;
     height: 90vh;
-  }
-
-  .margen{
-      padding-top: 38vh;
-  }
-
-  /* Modal Content/Box */
-  .modal-content {
-    margin: 5% auto; /* 15% from the top and centered */
-    padding: 20px;
-    width: 40%; /* Could be more or less, depending on screen size */
-/*     height: 30vh;     */
+    padding: 10%;
+    /* height: 90vh; */
 }
-  
-  /* The Close Button */
-  .close { 
-    color: #aaa;
-    float: right;
-    font-size: 50px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
 
-  .suerteImg{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    top: 50%;
-    left: 10%;
-    width: 30%;
-  }
+.marginBottomS{
+    margin-bottom: 2vh!important;
+}
 
-  #nombreUsuario{
-      background:linear-gradient(to right, #7ebb3b, #64b44c);
-      border-color: white;
-      border-style: solid;
-      border-radius: 10px;
-      width: 90%;
-      height: 30px;
-      font-size: 17px;
-  }
+.margenGanaste{
+    padding-top: 38vh;
+}
 
-  h2{
-    font-family: 'Roboto', sans-serif;
-    color: #74ba5c;
-    font-size: 50px;
-    margin: 0 0;
-  }
+.rta{
+    margin-top: 1vh;
+}
 
-  h3{
-    font-family: 'Roboto', sans-serif;
-    color: #69514c;
-    font-size: 25px;
-    margin: 15px 10px 10px 0;
-  }
-  h4{
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    font-weight: bold;
+.modal h3{
+    margin: 0;
     font-size: 20px;
-    margin: 10px 10px 0 30px;
-  }
+}
 
-  #rta{
+.modal h4{
+    margin: 0;
+    /* width: 80%; */
+}
+
+.modal p{
+    margin: 0;
+}
+
+#rta{
     color: #69514c;
-    padding: 10px 0;
-  }
-  .rta{
-      margin-top: -10px;
-  }
-
-  .flexCentrado{
-      display: flex;
-      justify-content: center;
-  }
-  .flexStart{
-    display: flex;
-    justify-content: flex-start;
+    /* padding: 1vh 0; */
+    margin: auto 0;
 }
 
-  .negro{
-      color: black;
-  }
+.flexStart p {
+    margin: auto 0;
+    padding-left: 10px;
+}
 
-  .escribi{
-      color: white;
-      font-weight: 400;
-      text-align: start;
-      margin-bottom: 10px;
-  }
- input::placeholder{
-     padding-left: 10px;
- }
-.intentos{
-    margin-top: 10px;
+.intentosTiempo{
+    margin-top: 1vh;
 }
-#sabias{
-    font-style: italic;
+
+.escribi{
+    color: white;
+    font-weight: 400;
+    text-align: start;
+    margin-bottom: 1vh!important;
 }
+
 #escribirNombre p{
     color: red;
 }
-/* .altura{
-    height: 100px;
-} */
 
-.modal-rendirse{
-    background: linear-gradient(to right, #8ee048, #65cd5d);
-    border-radius: 2em;
+input::placeholder{
+    padding-left: 1vw;
 }
+
+#nombreUsuario{
+    background:linear-gradient(to right, #7ebb3b, #64b44c);
+    border-color: white;
+    border-style: solid;
+    border-radius: 0.5vw;
+    width: 100%;
+    /* width: 80%; */
+    height: 3vh;
+    font-size: 17px;
+}
+
+#sabias{
+    font-style: italic;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 #rtaRendirse{
     background-color: white;
+    margin-top: 1vh;
+    padding: 1vh 1vw;
+    border-radius: 0.5em;
+    /* border-radius: 2em; */
+    color: #9f77fe;
+}
+
+.siNoBotones{
     margin-top: 20px;
-    padding: 10px 50px;
-    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* NIVELES */
+
+.bodyContainer{
+    width: 100%;
+    display: table;
+    text-align: center;
 }
 
 .elegirNivel{
     border: 3px solid white;
-    width: 30%;
-    height: 200px;
-    border-radius: 20px;
-    margin: 100px auto;
-}
-
-.blanco{
-    color: white;
+    width: 75vw;
+    height: 25vh;
+    border-radius: 2vw;
+    margin: 15vh auto;
 }
 
 .nivelCuadrados{
     color: #6cc6ff;
-    width: 55px;
+    width: 60px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 0.5vw;
     background-color: white;
     box-shadow: 0px 10px #6cc6ff;
-    margin: 10px 5px;
+    margin: 1vh 0.5vw;
 }
 
 .nivelLineas{
     border: 2px solid white;
     width: 50px;
     height: 50px;
-    border-radius: 10px;
-    margin: 10px 5px;
-
-}
-
-.cursor{
-    cursor: pointer;
+    border-radius: 0.5vw;
+    margin: 1vh 0.5vw;
 }
 
 .masMenos{
     width: 10%;
-    margin: auto 10px;
+    margin: auto 0.5vw;
 }
 
+.marginTopS{
+    margin-top: 4vh;
+    margin-bottom: 0vh;
+}
+
+.exitButton{
+    display: table-cell; 
+    vertical-align: bottom;
+}
+
+/* PUNTAJES */
 .puntajes{
-    width: 65vw;
-    height: 500px;
+    width: 100%;
+    height: 40vh;
     overflow-y: scroll;
     background-color: rgb(255, 255, 255, 0.1);
-    border-radius: 15px;
-    margin: 10px auto;
-    padding: 10px 10px;
-}
-
-.flex-vertical{
-    display: flex;
-    flex-direction: column;
-    margin-top: 56px;
-}
-
-.btn__borde{
-    border: 1px solid white;
-    background-color: rgb(255, 255, 255, 0.1);
-}
-
-.btn__seleccionado{
-    background-color: #4185f7;
+    border-radius: 1vw;
+    margin: 1vh auto;
 }
 
 .titulosPuntaje{
+    justify-content: space-between;
+}
+
+.titulosPuntaje h3{
+    font-size: 1rem;
+}
+
+.flexPuntajes p{
+    font-size: 1rem;
+}
+
+.btn-nivel{
+    width: 22vw;
+    margin: 0 10px;
+}
+
+.flexColumnPuntajes{
     margin-top: 20px;
+}
+
+.scrollBarHorizontal{
+    width: 300px;
+    overflow-X: scroll;
+    scrollbar-width: thin;
+    margin: 7vh auto;
+}
+
+
+/* INSTRUCCIONES */
+.instrucciones{
+    text-align: left;
     width: 65vw;
+    background-color: rgb(255, 255, 255, 0.1);
+    border-radius: 1vw;
+    margin: 5vh auto 5vh auto;
+    padding: 5vh 5vw;
+    min-height: 55vh;
+    position: relative;
+    padding-bottom: 6em;
 }
 
-.width{
-    width: 100%;
-}
-
-.margenIzq{
-    margin-left: 60px;
-}
-
-.imgSize{
-    height: 5em;
-    margin: 20px 30%;
+.instrucciones .flex{
+    display: block;
 }
 
 .imgSizeG{
-    height: 10em;
-    margin: 20px 30%;
-    
+    width: 100%;
+    margin-top: 20px;
 }
 
-.instrucciones{
-    width: 65vw;
-    background-color: rgb(255, 255, 255, 0.1);
-    border-radius: 15px;
-    margin: 50px auto;
-    padding: 30px 50px;
+.imgSize{
+    width: 100%;
+    margin: 20px 0;
 }
 
-.flecha{
-    height: 5em;
+.noFlecha{
+    visibility: hidden;
 }
 
 .flechas{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    position: absolute;
+    bottom: 10px;
+    width: 85%;
+}
+
+.flecha{
+    height: 2em;
+    margin: 20px 0;
+}
+
+.flechaDer{
+    position: absolute;
+    right: 5px;
+}
+
+.toroVacaInstrucciones{
+    width: 18vw;
+    padding: 10px;
+    height: 11vh;
+    border-radius: 0.5vw;
+    background-image: linear-gradient(to top, #4b99fd, #4185f7);
+    margin: 1vh 1vw;
 }

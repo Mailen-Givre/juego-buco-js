@@ -5,30 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buco</title>
-    <link rel="icon" href="../multimedia/isologo.png">
+    <link rel="icon" href="../multimedia/isologo.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/style-media-tablet.css" media="(min-width:768px)" />
+    <link rel="stylesheet" href="../css/style-media-desktop.css" media="(min-width:1025px)" />
     <meta name="description" content="">
     <meta name="keywords" content="">
 </head>
 <body class="fondoJugar">
     <header>
-        <a href="../index.html"><img src="../multimedia/isologo.png" alt="logo"></a>
+        <a href="../index.html"><img src="../multimedia/isologo.svg" alt="logo"></a>
         <h1>Cómo Jugar</h1>
     </header>
-    <div class="instrucciones">
-        <img class="imgSize" src="../multimedia/instrucciones/ganaste.svg" alt="ganaste">
-        <p>No hay límite en la cantidad de intentos. </br>
-        Cuando adivines podrás guardar tu nombre y el programa te dirá en cuántos intentos y en cuánto tiempo lo resolviste.</p>
-        <h3 class="blanco">Puntajes:</h3>
-        <p>Si vas a puntajes podrás ver, según el nivel jugado, la lista de los puntajes ordenados por el que lo acertó en menos intentos. En caso de coincidir en la cantidad de intentos se ordena por el que lo hizo en menos tiempo.</p>
-        <h3 class="blanco">¡Suerte y a divertirse!</h3>
-        <div class="flechas">
-            <a href="../paginas/instrucciones3.html"><img class="flecha" src="../multimedia/instrucciones/flechaI.svg" alt="atras"></a>
-            <div></div>
+    <div class="bodyContainer">
+        <div class="instrucciones">
+            <div>
+                <div>
+                    <img class="imgSize" src="../multimedia/instrucciones/ganaste.svg" alt="ganaste">
+                    <p>No hay límite en la cantidad de intentos. </br>
+                    Cuando adivines podrás guardar tu nombre y el programa te dirá en cuántos intentos y en cuánto tiempo lo resolviste.</p>
+                </div>
+                <div>
+                    <h3 class="blanco">Puntajes:</h3>
+                    <p>Si vas a "puntajes" podrás ver, según el nivel jugado, la lista de los puntajes ordenados por el que acertó el número en menos intentos. 
+                        En caso de coincidir en la cantidad de intentos, se ordena por el que lo hizo en menos tiempo.</p>
+                    <h3 class="blanco">¡Suerte y a divertirse!</h3>
+                    <!-- <a href="../paginas/jugar.html"><button class="btn__verde" type="button">¡A jugar!</button></a> -->
+                </div>
+            </div>
+    
+            <div class="flechas">
+                <a href="../paginas/instrucciones3.html"><img class="flecha" src="../multimedia/instrucciones/flechaI.svg" alt="atras"></a>
+                <div></div>
+            </div>
+        </div>
+        <div class="flex">
+            <a href="../index.html"><button class="btn__rosa" type="button">Salir</button></a>
+            <a href="../paginas/jugar.html"><button class="btn__verde" type="button">¡A jugar!</button></a>
         </div>
     </div>
-    <a href="../index.html"><button class="btn__naranja margenIzq" type="button">Salir</button></a>
 </body>
 </html>

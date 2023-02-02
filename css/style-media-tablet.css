@@ -1,0 +1,103 @@
+/* INDEX */
+.fondoColor{
+    background-color: #8ee048;
+    z-index: -2;
+ }
+
+ .fondo{
+    background-image: url(../multimedia/indice/fondoIndiceTablet.svg);
+}
+
+.menu{
+    padding: 3rem;
+    padding-bottom: 4.5rem;
+}
+
+.buttonIndex{
+    font-size: 2rem;
+}
+
+button{
+    font-size: 1.5rem;
+}
+
+/* NIVELES */
+.nivelCuadrados{
+    width: 85px;
+    height: 75px;
+}
+
+.nivelLineas{
+    width: 75px;
+    height: 75px;
+}
+
+/* PUNTAJES */
+.flexPuntajes{
+    display: flex;
+    justify-content: space-around;
+}
+
+.flexColumnPuntajes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.scrollBarHorizontal{
+    width: 65vw;
+    margin: 7vh auto;
+}
+
+.titulosPuntaje h3{
+    font-size: 1.5rem;
+}
+
+.flexPuntajes p{
+    font-size: 1.5rem;
+}
+
+.btn-nivel {
+    margin: 0;
+}
+
+/* INSTRUCCIONES */
+.flexInstrucciones{
+    display:flex !important;
+}
+
+.toroVacaInstrucciones{
+    margin-right: 30px;
+}
+
+/* JUEGO */
+.close { 
+    font-size: 50px;
+}
+
+.modal h2{
+    font-size: 35px;;
+}
+
+.modal p{
+    font-size: 20px;;
+}
+
+.fondoGanaste {
+    width: 40%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.modal button {
+    width: 15vw;
+}
+
+.margenGanaste {
+    padding-top: 28vh;
+}
+
+.escribi {
+    margin-top: 2vh!important;
+}

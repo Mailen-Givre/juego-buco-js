@@ -5,38 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buco</title>
-    <link rel="icon" href="../multimedia/isologo.png">
+    <link rel="icon" href="../multimedia/isologo.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/style-media-tablet.css" media="(min-width:768px)" />
+    <link rel="stylesheet" href="../css/style-media-desktop.css" media="(min-width:1025px)" />
     <meta name="description" content="">
     <meta name="keywords" content="">
     <script src="../js/jquery-3.6.0.js"defer></script>
+    <script src="../js/clases.js"defer></script>
     <script src="../js/puntajes.js"defer></script>
 </head>
-<body class="fondoJugar">
+<body>
     <header>
-        <a href="../index.html"><img src="../multimedia/isologo.png" alt="logo"></a>
+        <a href="../index.html"><img src="../multimedia/isologo.svg" alt="logo"></a>
         <h1>Tabla de Puntajes</h1>
     </header>
-    <div class="flex">
-        <div class="flex-vertical">        
-            <button class="btn__borde" id="nivel1" type="button">Nivel 1</button>
-            <button class="btn__borde" id="nivel2" type="button">Nivel 2</button>
-            <button class="btn__borde" id="nivel3" type="button">Nivel 3</button>
-        </div>
-        <div>
-            <div class="flex titulosPuntaje">
-                <h3 class="blanco">Puesto</h3>
-                <h3 class="blanco">Nombre</h3>
-                <h3 class="blanco">Fecha</h3>
-                <h3 class="blanco">Intentos</h3>
-                <h3 class="blanco">Tiempo</h3>
+    <div  class="bodyContainer">
+        <div class="flexPuntajes">
+            <div class="flexColumnPuntajes">        
+                <button class="btn__borde btn-nivel" id="nivel1" type="button">Nivel 1</button>
+                <button class="btn__borde btn-nivel" id="nivel2" type="button">Nivel 2</button>
+                <button class="btn__borde btn-nivel" id="nivel3" type="button">Nivel 3</button>
             </div>
-            <div class="puntajes" id="puntajes">
+            <div>
+                <div class="scrollBarHorizontal">
+                    <div class="flex titulosPuntaje">
+                        <h3 class="blanco">Puesto</h3>
+                        <h3 class="blanco">Nombre</h3>
+                        <h3 class="blanco">Fecha</h3>
+                        <h3 class="blanco">Intentos</h3>
+                        <h3 class="blanco">Tiempo</h3>
+                    </div>
+                    <div class="puntajes" id="puntajes">
+                    </div>
+                </div>
             </div>
         </div>
+        <a href="../index.html"><button class="btn__rosa exitButton" type="button">Salir</button></a>
     </div>
-    <a href="../index.html"><button class="btn__naranja margenIzq" type="button">Salir</button></a>
 </body>
 </html>

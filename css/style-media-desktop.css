@@ -1,0 +1,119 @@
+/* INDEX */
+button{
+    border-radius: 1vw;
+    width: 20vw;
+}
+
+.fondo{
+    background-image: url(../multimedia/indice/fondoIndiceDesktop.svg);
+}
+
+.buttonIndex{
+    border-radius: 1.5vw;
+    height: 9vh;
+    font-size: 2.5rem;
+}
+
+.menu{
+    width: 35vw;
+    margin-top: 30vh;
+    padding-bottom: 3.5rem;
+}
+
+/* NIVELES */
+.nivelCuadrados{
+    width: 110px;
+    height: 100px;
+}
+
+.nivelLineas{
+    width: 100px;
+    height: 100px;
+}
+
+.elegirNivel {
+    height: 33vh;
+    width: 55vw;
+}
+
+/* PUNTAJES */
+.titulosPuntaje{
+    justify-content: space-around;
+    width: 97%;
+}
+
+/* INSTRUCCIONES */
+.instrucciones .flex{
+    display: flex;
+    gap: 50px;
+}
+
+.imgSizeG{
+    height: 10em;
+    margin: 0 3vw; 
+}
+
+.imgSize{
+    height: 5em;
+}
+
+.flecha{
+    height: 4em;
+}
+
+/* JUEGO */
+.modal-content {
+    margin: 15% auto;
+}
+
+.ternerito{
+    visibility: visible;
+    width: 65%;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    margin-top: 4vh;
+}
+
+.adivinarNumero{
+    font-size: 75px;
+    width: 6vw;
+    height: 11vh;
+}
+
+.numeroAdivinado{
+    font-size: 45px;
+    width: 7vw;
+    height: 8vh;
+}
+
+.numberAnswer{
+    font-size: 45px;
+    height: 8vh;
+    width: 16vw;
+}
+
+.toroVaca {
+    width: 6vw;
+    height: 14vh;
+}
+
+.juego h5 {
+    font-size: 35px;
+}
+
+.escribiNumero {
+    font-size: 24px;
+}
+
+.flexToroVaca {
+    margin: 5vh 23vw 3vh 0;
+}
+
+.respuestas {
+    width: 55%;
+    height: 45vh;
+}
+
+.botonesJuego button {
+    width: 18vw !important;
+}

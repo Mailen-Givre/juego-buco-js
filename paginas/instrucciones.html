@@ -5,29 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buco</title>
-    <link rel="icon" href="../multimedia/isologo.png">
+    <link rel="icon" href="../multimedia/isologo.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/style-media-tablet.css" media="(min-width:768px)" />
+    <link rel="stylesheet" href="../css/style-media-desktop.css" media="(min-width:1025px)" />
     <meta name="description" content="">
     <meta name="keywords" content="">
 </head>
-<body class="fondoJugar">
+<body>
     <header>
-        <a href="../index.html"><img src="../multimedia/isologo.png" alt="logo"></a>
+        <a href="../index.html"><img src="../multimedia/isologo.svg" alt="logo"></a>
         <h1>Cómo Jugar</h1>
     </header>
-    <div class="instrucciones">
-        <h3 class="blanco">Objetivo:</h3>
-        <p>Adivinar el número secreto de la computadora.</p>
-        <h3 class="blanco">Elegir el nivel:</h3>
-        <p>Si es nivel 1, el más fácil,  habrá que adivinar un número de tres cifras, si es de nivel 2 de cuatro y de nivel 3 de cinco cifras.</p>
-        <img class="imgSizeG" src="../multimedia/instrucciones/nivel.svg" alt="nivel">
-        <div class="flechas">
-            <div></div>
-            <a href="../paginas/instrucciones2.html"><img class="flecha" src="../multimedia/instrucciones/flechaD.svg" alt="siguiente"></a>
+    <div class="bodyContainer">
+        <div class="instrucciones">
+            <h3 class="blanco">Objetivo:</h3>
+            <p>Adivinar el número secreto de la computadora.</p>
+            <div class="flex">
+                <div>
+                    <h3 class="blanco">Elegir el nivel:</h3>
+                    <p>Si es nivel 1, el más fácil, habrá que adivinar un número de tres cifras, si es de nivel 2, de cuatro y de nivel 3, de cinco cifras. 
+                        Para elegir el nivel hacé click en el - y el + que se encuentran en los costados.</p>
+                </div>
+                <img class="imgSizeG" src="../multimedia/instrucciones/nivel.svg" alt="nivel">
+            </div>
+    
+            <div class="flechas">
+                <img class="flecha noFlecha" src="../multimedia/instrucciones/flechaI.svg" alt="atras"></a>
+                <!-- <div class="flecha"></div> -->
+                <a href="../paginas/instrucciones2.html"><img class="flecha flechaDer" src="../multimedia/instrucciones/flechaD.svg" alt="siguiente"></a>
+            </div>
         </div>
+        <a href="../index.html"><button class="btn__rosa exitButton" type="button">Salir</button></a>
     </div>
-    <a href="../index.html"><button class="btn__naranja margenIzq" type="button">Salir</button></a>
 </body>
 </html>

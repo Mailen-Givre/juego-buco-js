@@ -5,6 +5,8 @@ botones()
 $("#nivelTitulo").html(`Nivel ${nivel}`)
 $("#mas").click(agregarNiveles)
 $("#menos").click(restarNiveles)
+$("#masN").click(agregarNiveles)
+$("#menosN").click(restarNiveles)
 
 function getNivel(){
     let nivelString = localStorage.getItem('nivel')
@@ -51,11 +53,39 @@ localStorage.setItem('nivel', nivel)
 
 function botones(){
     if (nivel==1){
-        $("#menos").html("")
-    } else {$("#menos").html("-")}
-    
+        $("#menosN").css({
+            'color': '#4185f7',
+            'cursor': 'default'
+        });
+        $("#menos").css({
+            'color': '#4185f7',
+            'cursor': 'default'
+        });
+     } else {
+        $("#menosN").css({
+            'color': 'white',
+            'cursor': 'pointer'
+        });
+        $("#menos").css({
+        'color': 'white',
+        'cursor': 'pointer'
+        });}
     if (nivel==3){
-        $("#mas").html("")
-    } else {$("#mas").html("+")}
+        $("#masN").css({
+        'color': '#4185f7',
+        'cursor': 'default'
+        });
+        $("#mas").css({
+            'color': '#4185f7',
+            'cursor': 'default'
+        });
+    } else {
+        $("#masN").css({
+            'color': 'white',
+            'cursor': 'pointer'
+        });
+        $("#mas").css({
+        'color': 'white',
+        'cursor': 'pointer'
+        });}
 }
-

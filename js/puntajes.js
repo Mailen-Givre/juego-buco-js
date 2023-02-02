@@ -1,23 +1,6 @@
-/* Objeto usuario */
-class usuario {
-    constructor (nombre,intentos,fecha,tiempo,nivel){
-        this.nombre = nombre;
-        this.intentos = intentos;
-        this.fecha = fecha;
-        this.tiempo = tiempo;
-        this.nivel = nivel;
-    }
-    
-    mostrarJugador () {
-        console.log('nombre '+ this.nombre);
-        console.log('intentos '+ this.intentos);
-        console.log('fecha '+ this.fecha);
-        console.log('tiempo '+ this.tiempo);
-    }
-}
-
 let usuariosTotales = []
 let nivel = 1
+nivel1()
 $("#nivel1").click(nivel1)
 $("#nivel2").click(nivel2)
 $("#nivel3").click(nivel3)
